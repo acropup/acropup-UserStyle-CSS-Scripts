@@ -1,5 +1,10 @@
-@-moz-document url-prefix("https://www.youtube.com/") {
-/* YouTube homepage and general */
+/* ==UserStyle==
+@name           YouTube Refined
+@namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.0.0
+@description    Makes YouTube nicer to use. See below for details.
+@author         Shane Burgess
+==/UserStyle== */
 
 /* This UserStyle shows more of the suggested video titles
    so that they're less likely to be cut short like thi...
@@ -11,6 +16,9 @@
   - Removes the "Scroll for details" chevron in fullscreen mode.
   - Increases the size of dismiss buttons for in-video ads.
 */
+
+@-moz-document url-prefix("https://www.youtube.com/") {
+/* YouTube homepage and general */
 
 /* Set height of video's text info */
 div#details {

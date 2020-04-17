@@ -14,6 +14,7 @@
   - Hides some of the overlays that obscure thumbnails and preview videos.
   - The end-of-video "video wall" now shows all video titles by default.
   - Removes the "Scroll for details" chevron in fullscreen mode.
+  - Removes the "More videos" popup over paused videos.
   - Increases the size of dismiss buttons for in-video ads.
 */
 
@@ -112,16 +113,10 @@ badge-style-type-ypc            Fundraiser, Free with Ads
 */
 }
 
-@-moz-document url-prefix("https://www.youtube.com/watch?") {
+@-moz-document url-prefix("https://www.youtube.com/watch?"),
+               url-prefix("https://www.youtube-nocookie.com/embed/") {
 /* YouTube watch video page */
 
-/* Reduce whitespace betweeen "up next" video and all related videos */
-ytd-compact-video-renderer.ytd-compact-autoplay-renderer {
-    padding-bottom: 0px;
-}
-ytd-compact-autoplay-renderer {
-    margin-bottom: 8px;
-}
 /* Make youtube sentiment bar (bar graph of likes vs dislikes) stand out more,
    so that I'm more likely to notice if a video is bad before watching it. */
 #sentiment.ytd-video-primary-info-renderer.style-scope {
@@ -155,6 +150,13 @@ ytd-watch-flexy[flexy_][is-two-columns_] #secondary.ytd-watch-flexy {
     padding-right: 0 !important;
     width: calc(var(--ytd-watch-flexy-sidebar-width) + 57px) !important;
 }
+/* Reduce whitespace betweeen "up next" video and all related videos */
+ytd-compact-video-renderer.ytd-compact-autoplay-renderer {
+    padding-bottom: 0px;
+}
+ytd-compact-autoplay-renderer {
+    margin-bottom: 8px;
+}
 
 /* Move badges to the bottom and fade it out on hover */
 ytd-badge-supported-renderer.ytd-compact-video-renderer .badge,
@@ -176,6 +178,11 @@ ytd-badge-supported-renderer.ytd-compact-movie-renderer .badge-style-type-collec
 ytd-menu-renderer.ytd-compact-video-renderer {
     top: unset !important; 
     bottom: 10px;
+}
+
+/* Remove "More videos" popup over paused videos */
+.ytp-pause-overlay {
+    display: none !important;
 }
 
 /* For the videowall of suggested videos after the playing video has finished, 

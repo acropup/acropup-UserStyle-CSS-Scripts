@@ -1,0 +1,220 @@
+@-moz-document url-prefix("https://www.youtube.com/") {
+/* YouTube homepage and general */
+
+/* This UserStyle shows more of the suggested video titles
+   so that they're less likely to be cut short like thi...
+
+  Other features:
+  - Makes the sentiment bar (showing likes vs dislikes) more eye-catching.
+  - Hides some of the overlays that obscure thumbnails and preview videos.
+  - The end-of-video "video wall" now shows all video titles by default.
+  - Removes the "Scroll for details" chevron in fullscreen mode.
+  - Increases the size of dismiss buttons for in-video ads.
+*/
+
+/* Set height of video's text info */
+div#details {
+    height: 11rem;
+}
+
+ytd-rich-item-renderer.ytd-rich-grid-renderer {
+    margin-bottom: 20px;
+}
+
+/* Reduce vertical margin on video titles */
+h3.ytd-rich-grid-video-renderer {
+    margin: 2px 0;
+}
+/* Let content overlap with ellipsis menu column */
+#meta.ytd-rich-grid-video-renderer {
+    padding-right: 0px;
+}
+/* Move vertical ellipsis menu button to bottom right corner */
+#menu > ytd-menu-renderer.ytd-rich-grid-video-renderer {
+    top: unset;
+    bottom: 2px;
+}
+/* Channel name and view count, bottom left */
+ytd-video-meta-block.grid.ytd-rich-grid-video-renderer {
+    position: absolute;
+    left: 42px;
+    width: 100%;
+    bottom: 0;
+}
+/* Channel icon, bottom left */
+a#avatar-link {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+/* Show up to 4 lines of title text before truncating with ellipsis */
+/* removed class .yt-simple-endpoint */
+#video-title.style-scope.ytd-rich-grid-video-renderer {
+    line-height: 1.3em !important;
+    max-height: 7rem !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 4;
+}
+/* Horizontal scrollbar was appearing, don't know why */
+#contents.ytd-rich-shelf-renderer {
+    overflow-x: unset;
+}
+
+/* Move badges below title and add background */
+ytd-badge-supported-renderer.ytd-rich-grid-video-renderer {
+    position: absolute;
+    bottom: 37px;
+    left: 0px;
+    margin: 0px;
+    border-width: 0px;
+}
+ytd-badge-supported-renderer .badge.badge-style-type-collection.ytd-badge-supported-renderer {
+    padding: 3px 4px;
+    border-radius: 4px;
+    background-color: #ececec;
+}
+/* Light red background to LIVE NOW badge */
+ytd-badge-supported-renderer .badge.badge-style-type-live-now.ytd-badge-supported-renderer {
+    background-color: #ffe6e6;
+}
+
+/* Fade out buttons over thumbnail ("Watch later" and "Add to queue") when not hovered */
+#hover-overlays:not(:hover) > ytd-thumbnail-overlay-toggle-button-renderer {
+    opacity: 0.4;
+    background: none;
+    transition: opacity .5s, background .5s;
+}
+/* Fade out thumbnail time status more quickly */
+ytd-rich-grid-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail, 
+ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail {
+    transition: opacity 0.15s;
+    opacity: 0;
+}
+
+/*
+Notes on different badge styles:
+badge-style-type-verified       Verification checkmark
+badge-style-type-simple         New, Free
+badge-style-type-live-now       LIVE NOW
+badge-style-type-collection     Series, season, and episode info
+badge-style-type-ypc            Fundraiser, Free with Ads
+*/
+}
+
+@-moz-document url-prefix("https://www.youtube.com/watch?") {
+/* YouTube watch video page */
+
+/* Reduce whitespace betweeen "up next" video and all related videos */
+ytd-compact-video-renderer.ytd-compact-autoplay-renderer {
+    padding-bottom: 0px;
+}
+ytd-compact-autoplay-renderer {
+    margin-bottom: 8px;
+}
+/* Make youtube sentiment bar (bar graph of likes vs dislikes) stand out more,
+   so that I'm more likely to notice if a video is bad before watching it. */
+#sentiment.ytd-video-primary-info-renderer.style-scope {
+    padding-top: 2px;
+}
+#container.ytd-sentiment-bar-renderer.style-scope {
+    height: 6px;
+    background-color: #00f3ff;
+}
+#like-bar.ytd-sentiment-bar-renderer {
+    height: 6px;
+}
+
+/* Allow up to four lines of video title text for suggested videos */
+#video-title.ytd-compact-video-renderer {
+    max-height: 5.6em !important;
+    line-height: 1.4rem !important;
+    margin: 0 !important;
+    -webkit-line-clamp: 4 !important;
+}
+/* More horizontal room for suggested video titles */
+.metadata.ytd-compact-video-renderer {
+    padding-right: 10px;
+}
+/* Reduce padding around default video view */
+ytd-watch-flexy[flexy_][is-two-columns_] #primary.ytd-watch-flexy {
+    margin-left: var(--ytd-margin-2x);
+    padding-right: var(--ytd-margin-2x);
+}
+ytd-watch-flexy[flexy_][is-two-columns_] #secondary.ytd-watch-flexy {
+    padding-right: 0 !important;
+    width: calc(var(--ytd-watch-flexy-sidebar-width) + 57px) !important;
+}
+
+/* Move badges to the bottom and fade it out on hover */
+ytd-badge-supported-renderer.ytd-compact-video-renderer .badge,
+ytd-badge-supported-renderer.ytd-compact-movie-renderer .badge {
+    position: absolute;
+    bottom: 0rem;    
+    transition: opacity .15s;
+}
+ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:hover ytd-badge-supported-renderer.ytd-compact-video-renderer .badge {
+    opacity: .2;
+    transition: opacity .2s;
+}
+ytd-badge-supported-renderer.ytd-compact-video-renderer .badge-style-type-collection,
+ytd-badge-supported-renderer.ytd-compact-movie-renderer .badge-style-type-collection {
+    right: 1rem;
+}
+
+/* Move vertical ellipsis menu button to bottom right corner */
+ytd-menu-renderer.ytd-compact-video-renderer {
+    top: unset !important; 
+    bottom: 10px;
+}
+
+/* For the videowall of suggested videos after the playing video has finished, 
+   show titles and other details by default, and hide them when hovered. 
+   YouTube normally hides the text unless hovered. */
+.ytp-videowall-still-info-content {
+    opacity: 1;
+}
+.ytp-videowall-still:focus .ytp-videowall-still-info-content, 
+.ytp-videowall-still:hover .ytp-videowall-still-info-content, 
+.ytp-videowall-still.ytp-videowall-show-text .ytp-videowall-still-info-content {
+    opacity: 0;
+}
+/* Videowall suggested titles should show more than 2 lines before truncating */
+span.ytp-videowall-still-info-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    max-height: 7.5em !important;
+}
+/* Remove "Scroll for details" chevron in fullscreen mode */
+.ytp-fullerscreen-edu-button {
+    display: none !important;
+}
+
+/* This isn't an ad-blocking script, but I take exception with ads that obscure 
+   the content and force you to click a tiny little [x] to dismiss them */
+.ytp-ad-overlay-close-container {
+    height: 82px;
+    width: 82px;
+    padding: 0px;
+    right: 4px;
+    top: 4px;
+    outline: auto #757575;
+}
+.ytp-ad-overlay-ad-info-button-container {
+    right: 90px
+}
+/* Larger Skip button on skippable video ads */
+.ytp-ad-skip-button-slot, .ytp-ad-skip-button-container {
+    display: unset !important;
+}
+.ytp-ad-skip-button {
+    font-size: 36px;
+    padding: 10px 8px 10px 16px;
+}
+
+}

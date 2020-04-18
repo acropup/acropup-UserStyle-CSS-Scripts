@@ -15,6 +15,7 @@
   - The end-of-video "video wall" now shows all video titles by default.
   - Removes the "Scroll for details" chevron in fullscreen mode.
   - Removes the "More videos" popup over paused videos.
+  - Captions don't move (and further obscure the video) when the progress bar appears.
   - Increases the size of dismiss buttons for in-video ads.
 */
 
@@ -208,6 +209,10 @@ span.ytp-videowall-still-info-title {
 /* Remove "Scroll for details" chevron in fullscreen mode */
 .ytp-fullerscreen-edu-button {
     display: none !important;
+}
+/* It's ok if the progress bar overlaps the captions */
+#movie_player .caption-window.ytp-caption-window-bottom {
+    margin-bottom: 0px;
 }
 
 /* This isn't an ad-blocking script, but I take exception with ads that obscure 

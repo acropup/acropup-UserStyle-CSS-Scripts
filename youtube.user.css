@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.0
+@version        1.0.1
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -115,6 +115,7 @@ badge-style-type-ypc            Fundraiser, Free with Ads
 }
 
 @-moz-document url-prefix("https://www.youtube.com/watch?"),
+               url-prefix("https://www.youtube.com/embed/"),
                url-prefix("https://www.youtube-nocookie.com/embed/") {
 /* YouTube watch video page */
 
@@ -213,6 +214,9 @@ span.ytp-videowall-still-info-title {
 /* It's ok if the progress bar overlaps the captions */
 #movie_player .caption-window.ytp-caption-window-bottom {
     margin-bottom: 0px;
+}
+.caption-window {
+    bottom: 0 !important;
 }
 
 /* This isn't an ad-blocking script, but I take exception with ads that obscure 

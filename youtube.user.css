@@ -255,8 +255,8 @@ ytd-video-secondary-info-renderer paper-button#less.ytd-expander {
     margin: 1em 0 0;
 }
 /* Read more/Show less buttons more visible */
-#comment paper-button#more.ytd-expander,
-#comment paper-button#less.ytd-expander {
+#comments paper-button#more.ytd-expander,
+#comments paper-button#less.ytd-expander {
     background-color: #dcdcdc;
     margin: .8em 0 0 0;
     padding: 2px 4px 0px 4px;

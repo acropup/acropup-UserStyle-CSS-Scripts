@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.1
+@version        1.0.2
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -17,6 +17,8 @@
   - Removes the "More videos" popup over paused videos.
   - Captions don't move (and further obscure the video) when the progress bar appears.
   - Increases the size of dismiss buttons for in-video ads.
+  - Shows more of the video description by default.
+  - SHOW MORE/SHOW LESS and Read more/Show less buttons are made more visible.
 */
 
 @-moz-document url-prefix("https://www.youtube.com/") {
@@ -239,6 +241,25 @@ span.ytp-videowall-still-info-title {
 .ytp-ad-skip-button {
     font-size: 36px;
     padding: 10px 8px 10px 16px;
+}
+
+/* Show more video description text by default */
+ytd-expander.ytd-video-secondary-info-renderer {
+    --ytd-expander-collapsed-height: 250px !important;
+}
+/* SHOW MORE/SHOW LESS buttons more visible */
+ytd-video-secondary-info-renderer paper-button#more.ytd-expander,
+ytd-video-secondary-info-renderer paper-button#less.ytd-expander {
+    background-color: #d6d6d6;
+    padding: 0 1em 0.5em 1em;
+    margin: 1em 0 0;
+}
+/* Read more/Show less buttons more visible */
+#comment paper-button#more.ytd-expander,
+#comment paper-button#less.ytd-expander {
+    background-color: #dcdcdc;
+    margin: .8em 0 0 0;
+    padding: 2px 4px 0px 4px;
 }
 
 }

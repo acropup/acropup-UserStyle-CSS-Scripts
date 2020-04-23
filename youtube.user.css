@@ -16,6 +16,7 @@
   - Removes the "Scroll for details" chevron in fullscreen mode.
   - Removes the "More videos" popup over paused videos.
   - Captions don't move (and further obscure the video) when the progress bar appears.
+  - Bottom gradient isn't as obtrusive when the progress bar appears.
   - Increases the size of dismiss buttons for in-video ads.
   - Shows more of the video description by default.
   - SHOW MORE/SHOW LESS and Read more/Show less buttons are made more visible.
@@ -25,20 +26,28 @@
 /* YouTube homepage and general */
 
 /* Set height of video's text info */
-div#details {
+ytd-rich-grid-video-renderer div#details {
     height: 11rem;
+}
+ytd-grid-video-renderer div#details {
+    height: 7.4rem;
 }
 
 ytd-rich-item-renderer.ytd-rich-grid-renderer {
     margin-bottom: 20px;
 }
+ytd-grid-video-renderer.ytd-grid-renderer {
+    margin-bottom: 12px !important;
+}
 
 /* Reduce vertical margin on video titles */
-h3.ytd-rich-grid-video-renderer {
+h3.ytd-rich-grid-video-renderer,
+h3.ytd-grid-video-renderer {
     margin: 2px 0;
 }
 /* Let content overlap with ellipsis menu column */
-#meta.ytd-rich-grid-video-renderer {
+#meta.ytd-rich-grid-video-renderer,
+#meta.ytd-grid-video-renderer {
     padding-right: 0px;
 }
 /* Move vertical ellipsis menu button to bottom right corner */
@@ -46,11 +55,20 @@ h3.ytd-rich-grid-video-renderer {
     top: unset;
     bottom: 2px;
 }
+#menu > ytd-menu-renderer.ytd-grid-video-renderer {
+    top: unset;
+    bottom: -3px;
+}
+    
 /* Channel name and view count, bottom left */
 ytd-video-meta-block.grid.ytd-rich-grid-video-renderer {
     position: absolute;
     left: 42px;
     width: 100%;
+    bottom: 0;
+}
+#metadata-container.grid.ytd-grid-video-renderer {
+    position: absolute;
     bottom: 0;
 }
 /* Channel icon, bottom left */
@@ -62,7 +80,8 @@ a#avatar-link {
 
 /* Show up to 4 lines of title text before truncating with ellipsis */
 /* removed class .yt-simple-endpoint */
-#video-title.style-scope.ytd-rich-grid-video-renderer {
+#video-title.style-scope.ytd-rich-grid-video-renderer,
+ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
     line-height: 1.3em !important;
     max-height: 7rem !important;
     overflow: hidden;
@@ -70,6 +89,10 @@ a#avatar-link {
     white-space: normal;
     -webkit-line-clamp: 4;
 }
+ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
+    -webkit-line-clamp: 3;
+}
+
 /* Horizontal scrollbar was appearing, don't know why */
 #contents.ytd-rich-shelf-renderer {
     overflow-x: unset;
@@ -108,11 +131,19 @@ ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-
 
 /*
 Notes on different badge styles:
-badge-style-type-verified       Verification checkmark
-badge-style-type-simple         New, Free
-badge-style-type-live-now       LIVE NOW
-badge-style-type-collection     Series, season, and episode info
-badge-style-type-ypc            Fundraiser, Free with Ads
+badge-style-type-verified           Verification checkmark
+badge-style-type-verified-artist    Music note for verified official artist channel
+badge-style-type-simple             New, Free
+badge-style-type-live-now           LIVE NOW
+badge-style-type-collection         Series, season, and episode info
+badge-style-type-ypc                Fundraiser, Free with Ads
+    
+Notes on different video preview styles:
+ytd-rich-grid-video-renderer        Large thumbnail, video preview, channel logo, info below thumbnail
+                                    ex. YouTube homepage
+ytd-grid-video-renderer             Small thumbnail, info below thumbnail
+                                    ex. /channel/<channel_id>/videos
+    
 */
 }
 
@@ -219,6 +250,15 @@ span.ytp-videowall-still-info-title {
 }
 .caption-window {
     bottom: 0 !important;
+}
+/* Bottom gradient behind progress bar made less obtrusive */
+.ytp-gradient-bottom {
+    height: 49px !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==) !important;
+}
+.ytp-big-mode .ytp-gradient-bottom {
+    height: 70px !important;               
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEmCAYAAACjy/qzAAAAhklEQVQ4y52RUQ6AMAxCKd7/JJ7R6aeJAdr507TjQZqOAE4CWARwx7JE944rch/k6qOWS7bq5bh72zGF8+LTa6goJeRPgXDYNxWFfkS0QXCInLIN1GxTXA0dtS0otWJnuXJR1Y9WYP9GF1UCYRQYHRSlXMARbVO4th3sd7Y3OP5dY3Bn+SkPsGJ1+HGGVtcAAAAASUVORK5CYII=) !important;
 }
 
 /* This isn't an ad-blocking script, but I take exception with ads that obscure 

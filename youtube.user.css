@@ -109,11 +109,11 @@ ytd-badge-supported-renderer.ytd-rich-grid-video-renderer {
 ytd-badge-supported-renderer .badge.badge-style-type-collection.ytd-badge-supported-renderer {
     padding: 3px 4px;
     border-radius: 4px;
-    background-color: #ececec;
+    background-color: var(--yt-std-surface-400);
 }
 /* Light red background to LIVE NOW badge */
 ytd-badge-supported-renderer .badge.badge-style-type-live-now.ytd-badge-supported-renderer {
-    background-color: #ffe6e6;
+    background-color: #ff000020;
 }
 
 /* Fade out buttons over thumbnail ("Watch later" and "Add to queue") when not hovered */
@@ -290,14 +290,14 @@ ytd-expander.ytd-video-secondary-info-renderer {
 /* SHOW MORE/SHOW LESS buttons more visible */
 ytd-video-secondary-info-renderer paper-button#more.ytd-expander,
 ytd-video-secondary-info-renderer paper-button#less.ytd-expander {
-    background-color: #d6d6d6;
+    background-color: var(--yt-opalescence-grey-opacity-lighten-3);
     padding: 0 1em 0.5em 1em;
     margin: 1em 0 0;
 }
 /* Read more/Show less buttons more visible */
 #comments paper-button#more.ytd-expander,
 #comments paper-button#less.ytd-expander {
-    background-color: #dcdcdc;
+    background-color: var(--yt-opalescence-grey-opacity-lighten-3);
     margin: .8em 0 0 0;
     padding: 2px 4px 0px 4px;
 }

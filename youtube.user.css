@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.3
+@version        1.0.4
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -24,7 +24,25 @@
 
 @-moz-document url-prefix("https://www.youtube.com/") {
 /* YouTube homepage and general */
-
+    
+    
+    ytd-rich-item-renderer a#avatar-link {
+        --avatar-size: 51px;
+        width: var(--avatar-size);
+        left: calc(46px - var(--avatar-size));
+        bottom: calc(var(--avatar-size)/2 - 18px);
+        transition: width .15s, left .15s, bottom .15s;
+    }
+     ytd-rich-item-renderer:hover #avatar-link {
+        --avatar-size: 68px;
+    }
+    #avatar.ytd-rich-grid-video-renderer,
+    #avatar.ytd-rich-grid-video-renderer > img#img {
+        width: var(--avatar-size);
+        height: var(--avatar-size);
+        transition: width .15s, height .15s;
+    }
+    
 /* Set height of video's text info */
 ytd-rich-grid-video-renderer div#details {
     height: 11rem;
@@ -63,7 +81,7 @@ h3.ytd-grid-video-renderer {
 /* Channel name and view count, bottom left */
 ytd-video-meta-block.grid.ytd-rich-grid-video-renderer {
     position: absolute;
-    left: 42px;
+    left: 48px;
     width: 100%;
     bottom: 0;
 }
@@ -74,8 +92,8 @@ ytd-video-meta-block.grid.ytd-rich-grid-video-renderer {
 /* Channel icon, bottom left */
 a#avatar-link {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 8px;
+    left: -8px;
 }
 
 /* Show up to 4 lines of title text before truncating with ellipsis */

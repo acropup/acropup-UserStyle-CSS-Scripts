@@ -1,9 +1,17 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.3
+@version        1.0.4
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
+@preprocessor   less
+@var range    TitleLines "Title lines shown on homepage" [3, 0, 4, 1]
+@var checkbox HidePlaylists "Playlists hidden from search results and recommendations" 1
+@var checkbox CCToBottom "Captions stay at bottom of video" 1
+@var checkbox ShowVideoWallTitles "Show all video titles on video wall (after video ends)" 1
+@var checkbox AdDismissBtn "Ad dismiss buttons made larger" 1
+@var number   DescLinesShown "Unexpanded description size" [12, 0, 100, 1]
+@var number   VideoOverlay "Video overlays (channel banner, suggested video, etc.) opacity" [0.2, 0.0, 1.0, 0.05]
 ==/UserStyle== */
 
 /* This UserStyle shows more of the suggested video titles
@@ -12,26 +20,21 @@
   Other features:
   - Makes the sentiment bar (showing likes vs dislikes) more eye-catching.
   - Hides some of the overlays that obscure thumbnails and preview videos.
-  - The end-of-video "video wall" now shows all video titles by default.
+  - The end-of-video "video wall" now shows all video titles by default. [Optional]
   - Removes the "Scroll for details" chevron in fullscreen mode.
   - Removes the "More videos" popup over paused videos.
-  - Captions don't move (and further obscure the video) when the progress bar appears.
+  - Captions don't move (and further obscure the video) when the progress bar appears. [Optional]
   - Bottom gradient isn't as obtrusive when the progress bar appears.
-  - Increases the size of dismiss buttons for in-video ads.
-  - Shows more of the video description by default.
+  - Increases the size of dismiss buttons for in-video ads. [Optional]
+  - Shows more of the video description by default. [Optional]
   - SHOW MORE/SHOW LESS and Read more/Show less buttons are made more visible.
+  - Hides playlists from search results and recommendations. [Optional]
+  - Reduces visibility of video overlays, such as links to uploader's channel, videos, and playlists [Optional]
 */
+
 
 @-moz-document url-prefix("https://www.youtube.com/") {
 /* YouTube homepage and general */
-
-/* Set height of video's text info */
-ytd-rich-grid-video-renderer div#details {
-    height: 11rem;
-}
-ytd-grid-video-renderer div#details {
-    height: 7.4rem;
-}
 
 ytd-rich-item-renderer.ytd-rich-grid-renderer {
     margin-bottom: 20px;
@@ -78,16 +81,24 @@ a#avatar-link {
     left: 0px;
 }
 
+/* Set height of video's text info */
+ytd-rich-grid-video-renderer div#details {
+    height: calc((@TitleLines + 2.8) * 1.8rem); /* 11rem;*/
+}
+ytd-grid-video-renderer div#details {
+    height: 7.4rem;
+}
 /* Show up to 4 lines of title text before truncating with ellipsis */
 /* removed class .yt-simple-endpoint */
 #video-title.style-scope.ytd-rich-grid-video-renderer,
 ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
-    line-height: 1.3em !important;
-    max-height: 7rem !important;
+    font-size: 1.4rem !important;
+    line-height: 1.8rem !important;
+    max-height: calc(@TitleLines * $line-height) !important;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: @TitleLines;
 }
 ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
     -webkit-line-clamp: 3;
@@ -101,8 +112,8 @@ ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
 /* Move badges below title and add background */
 ytd-badge-supported-renderer.ytd-rich-grid-video-renderer {
     position: absolute;
-    bottom: 37px;
-    left: 0px;
+    bottom: 35px;
+    right: 0px;
     margin: 0px;
     border-width: 0px;
 }
@@ -129,6 +140,14 @@ ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-
     opacity: 0;
 }
 
+& when (@HidePlaylists = 1) {
+/* Hide all suggested playlists because I almost never want to see them */
+ytd-compact-radio-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
+ytd-compact-playlist-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
+ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
+    display: none;
+}
+    }
 /*
 Notes on different badge styles:
 badge-style-type-verified           Verification checkmark
@@ -200,7 +219,8 @@ ytd-badge-supported-renderer.ytd-compact-movie-renderer .badge {
     bottom: 0rem;    
     transition: opacity .15s;
 }
-ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:hover ytd-badge-supported-renderer.ytd-compact-video-renderer .badge {
+ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:hover ytd-badge-supported-renderer.ytd-compact-video-renderer .badge,
+ytd-compact-video-renderer.ytd-compact-autoplay-renderer:hover ytd-badge-supported-renderer.ytd-compact-video-renderer .badge {
     opacity: .2;
     transition: opacity .2s;
 }
@@ -219,10 +239,20 @@ ytd-menu-renderer.ytd-compact-video-renderer {
 .ytp-pause-overlay {
     display: none !important;
 }
+/* Reduce visibility of video overlays, such as links to uploader's channel, videos, and playlists */
+.ytp-ce-element:not(:hover):not(:focus) {
+    opacity: @VideoOverlay;
+}
+& when (@VideoOverlay = 0) {
+    .ytp-ce-element {
+        display: none !important;
+    }
+}
 
 /* For the videowall of suggested videos after the playing video has finished, 
    show titles and other details by default, and hide them when hovered. 
    YouTube normally hides the text unless hovered. */
+& when (@ShowVideoWallTitles = 1) {
 .ytp-videowall-still-info-content {
     opacity: 1;
 }
@@ -240,16 +270,20 @@ span.ytp-videowall-still-info-title {
     -webkit-line-clamp: 5;
     max-height: 7.5em !important;
 }
+}
 /* Remove "Scroll for details" chevron in fullscreen mode */
 .ytp-fullerscreen-edu-button {
     display: none !important;
 }
+
+& when (@CCToBottom = 1) {
 /* It's ok if the progress bar overlaps the captions */
 #movie_player .caption-window.ytp-caption-window-bottom {
     margin-bottom: 0px;
 }
 .caption-window {
     bottom: 0 !important;
+}
 }
 /* Bottom gradient behind progress bar made less obtrusive */
 .ytp-gradient-bottom {
@@ -261,6 +295,7 @@ span.ytp-videowall-still-info-title {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEmCAYAAACjy/qzAAAAhklEQVQ4y52RUQ6AMAxCKd7/JJ7R6aeJAdr507TjQZqOAE4CWARwx7JE944rch/k6qOWS7bq5bh72zGF8+LTa6goJeRPgXDYNxWFfkS0QXCInLIN1GxTXA0dtS0otWJnuXJR1Y9WYP9GF1UCYRQYHRSlXMARbVO4th3sd7Y3OP5dY3Bn+SkPsGJ1+HGGVtcAAAAASUVORK5CYII=) !important;
 }
 
+& when (@AdDismissBtn = 1) {
 /* This isn't an ad-blocking script, but I take exception with ads that obscure 
    the content and force you to click a tiny little [x] to dismiss them */
 .ytp-ad-overlay-close-container {
@@ -282,10 +317,14 @@ span.ytp-videowall-still-info-title {
     font-size: 36px;
     padding: 10px 8px 10px 16px;
 }
+}
 
 /* Show more video description text by default */
 ytd-expander.ytd-video-secondary-info-renderer {
-    --ytd-expander-collapsed-height: 250px !important;
+    --ytd-expander-collapsed-height: calc(@DescLinesShown * var(--ytd-user-comment_-_line-height)) !important;
+    & when (@DescLinesShown = 0) {
+        display: none;
+    }
 }
 /* SHOW MORE/SHOW LESS buttons more visible */
 ytd-video-secondary-info-renderer paper-button#more.ytd-expander,

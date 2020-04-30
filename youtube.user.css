@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.4
+@version        1.0.5
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -83,10 +83,10 @@ a#avatar-link {
 
 /* Set height of video's text info */
 ytd-rich-grid-video-renderer div#details {
-    height: calc((@TitleLines + 2.8) * 1.8rem); /* 11rem;*/
+    height: calc((@TitleLines + 2.8) * 1.8rem);
 }
 ytd-grid-video-renderer div#details {
-    height: 7.4rem;
+    height: calc((@TitleLines + 2) * 1.8rem);
 }
 /* Show up to 4 lines of title text before truncating with ellipsis */
 /* removed class .yt-simple-endpoint */
@@ -99,9 +99,6 @@ ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
     text-overflow: ellipsis;
     white-space: normal;
     -webkit-line-clamp: @TitleLines;
-}
-ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
-    -webkit-line-clamp: 3;
 }
 
 /* Horizontal scrollbar was appearing, don't know why */
@@ -162,7 +159,9 @@ ytd-rich-grid-video-renderer        Large thumbnail, video preview, channel logo
                                     ex. YouTube homepage
 ytd-grid-video-renderer             Small thumbnail, info below thumbnail
                                     ex. /channel/<channel_id>/videos
-    
+                                        /feed/subscriptions
+ytd-compact-video-renderer          Small thumbnail, info to right of thumbnail
+                                    ex. Suggested video list on right side of any video page
 */
 }
 

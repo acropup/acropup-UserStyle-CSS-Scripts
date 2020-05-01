@@ -130,6 +130,7 @@ ytd-badge-supported-renderer .badge.badge-style-type-live-now.ytd-badge-supporte
     background: none;
     transition: opacity .5s, background .5s;
 }
+/* Hide the Play icon from hovered video previews */
 #mouseover-overlay #play {
     display: none;
 }

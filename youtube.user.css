@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.5
+@version        1.0.6
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -130,6 +130,9 @@ ytd-badge-supported-renderer .badge.badge-style-type-live-now.ytd-badge-supporte
     background: none;
     transition: opacity .5s, background .5s;
 }
+#mouseover-overlay #play {
+    display: none;
+}
 /* Fade out thumbnail time status more quickly */
 ytd-rich-grid-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail, 
 ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail {
@@ -160,6 +163,7 @@ ytd-rich-grid-video-renderer        Large thumbnail, video preview, channel logo
 ytd-grid-video-renderer             Small thumbnail, info below thumbnail
                                     ex. /channel/<channel_id>/videos
                                         /feed/subscriptions
+                                        /feed/library
 ytd-compact-video-renderer          Small thumbnail, info to right of thumbnail
                                     ex. Suggested video list on right side of any video page
 */

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.6
+@version        1.0.7
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -12,6 +12,7 @@
 @var checkbox AdDismissBtn "Ad dismiss buttons made larger" 1
 @var number   DescLinesShown "Unexpanded description size" [12, 0, 100, 1]
 @var number   VideoOverlay "Video overlays (channel banner, suggested video, etc.) opacity" [0.2, 0.0, 1.0, 0.05]
+@var checkbox ColourLogo "Colour the YouTube logo" 1
 ==/UserStyle== */
 
 /* This UserStyle shows more of the suggested video titles
@@ -29,7 +30,8 @@
   - Shows more of the video description by default. [Optional]
   - SHOW MORE/SHOW LESS and Read more/Show less buttons are made more visible.
   - Hides playlists from search results and recommendations. [Optional]
-  - Reduces visibility of video overlays, such as links to uploader's channel, videos, and playlists [Optional]
+  - Reduces visibility of video overlays, such as links to uploader's channel, videos, and playlists. [Optional]
+  - Colour the YouTube logo as a visual indicator that this UserStyle script is enabled. [Optional]
 */
 
 
@@ -148,7 +150,23 @@ ytd-compact-playlist-renderer.ytd-watch-next-secondary-results-renderer, /* vide
 ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
     display: none;
 }
+}
+& when (@ColourLogo = 1) {
+    #logo-icon-container > svg > g > g:nth-child(1) > path { /* youtube logo squircle */
+        fill: #F12711;
     }
+    #logo-icon-container > svg > g > g:nth-child(1) > polygon { /* youtube logo play triangle */
+        fill: #FA3;
+    }
+/* https://meyerweb.com/eric/tools/color-blend/ */
+#logo-icon-container #youtube-paths > path:nth-child(3) { fill: #F12711 !important; }
+#logo-icon-container #youtube-paths > path:nth-child(1) { fill: #F23E12 !important; }
+#logo-icon-container #youtube-paths > path:nth-child(4) { fill: #F25414 !important; }
+#logo-icon-container #youtube-paths > path:nth-child(6) { fill: #F36B15 !important; }
+#logo-icon-container #youtube-paths > path:nth-child(5) { fill: #F48216 !important; }
+#logo-icon-container #youtube-paths > path:nth-child(7) { fill: #F49818 !important; }
+#logo-icon-container #youtube-paths > path:nth-child(2) { fill: #F5AF19 !important; }
+}
 /*
 Notes on different badge styles:
 badge-style-type-verified           Verification checkmark

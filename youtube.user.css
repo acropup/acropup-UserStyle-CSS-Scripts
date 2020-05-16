@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.8
+@version        1.0.9
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -85,7 +85,7 @@ a#avatar-link {
 
 /* Set height of video's text info */
 ytd-rich-grid-video-renderer div#details {
-    height: calc((@TitleLines + 2.8) * 1.8rem);
+    height: calc((@TitleLines * 1.8rem) + 3.8rem);
 }
 ytd-grid-video-renderer div#details {
     height: calc((@TitleLines + 2) * 1.8rem);
@@ -192,11 +192,11 @@ badge-style-type-ypc                Fundraiser, Free with Ads
 Notes on different video preview styles:
 ytd-rich-grid-video-renderer        Large thumbnail, video preview, channel logo, info below thumbnail
                                     ex. YouTube homepage
-ytd-grid-video-renderer             Small thumbnail, info below thumbnail
+ytd-grid-video-renderer             Small thumbnail with info below thumbnail
                                     ex. /channel/<channel_id>/videos
                                         /feed/subscriptions
                                         /feed/library
-ytd-compact-video-renderer          Small thumbnail, info to right of thumbnail
+ytd-compact-video-renderer          Small thumbnail with info to right of thumbnail
                                     ex. Suggested video list on right side of any video page
 */
 }

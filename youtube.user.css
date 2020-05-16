@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.7
+@version        1.0.8
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -147,6 +147,7 @@ ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-
 /* Hide all suggested playlists because I almost never want to see them */
 ytd-compact-radio-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
 ytd-compact-playlist-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
+ytd-radio-renderer.ytd-item-section-renderer,   /* search results */
 ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
     display: none;
 }
@@ -158,6 +159,7 @@ ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
     #logo-icon-container > svg > g > g:nth-child(1) > polygon { /* youtube logo play triangle */
         fill: #FA3;
     }
+    /* Y o u T u b e */
 /* https://meyerweb.com/eric/tools/color-blend/ */
 #logo-icon-container #youtube-paths > path:nth-child(3) { fill: #F12711 !important; }
 #logo-icon-container #youtube-paths > path:nth-child(1) { fill: #F23E12 !important; }
@@ -166,6 +168,17 @@ ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
 #logo-icon-container #youtube-paths > path:nth-child(5) { fill: #F48216 !important; }
 #logo-icon-container #youtube-paths > path:nth-child(7) { fill: #F49818 !important; }
 #logo-icon-container #youtube-paths > path:nth-child(2) { fill: #F5AF19 !important; }
+
+/* Hamburger Menu Icon - can't colour the SVG with only CSS so I'm redoing the shape as a clip-path */
+#guide-icon {
+    background: linear-gradient(0deg, #f00, #ffe600);
+    clip-path: polygon(3px 18px, 21px 18px, 21px 16px, 3px 16px,
+                       3px 13px, 21px 13px, 21px 11px, 3px 11px,
+                       3px 8px, 21px 8px, 21px 6px, 3px 6px);
+    & svg {
+        display: none !important;
+    }
+}
 }
 /*
 Notes on different badge styles:

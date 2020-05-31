@@ -2,7 +2,7 @@
 @name           Gmail Keyboard Shortcut Tooltips
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @version        1.0.0
-@description    Within Gmail, display Gmail's default keyboard shortcuts for most commands next to their buttons.
+@description    Within Gmail, display Gmail's default keyboard shortcuts for most commands next to their buttons. ⇧ symbol denotes the Shift key.
 @author         Shane Burgess
 ==/UserStyle== */
 
@@ -10,8 +10,11 @@
    or go to https://support.google.com/mail/answer/6594?hl=en-GB 
    This style assumes you are using the default keyboard shortcuts.
    If you have customized them, you'll have to customize this script to match (it's not difficult).
+
+   In this style, the upwards arrow symbol used is ⇧, a Unicode symbol called the Upwards Thick Arrow (U+21e7).
+   If the ⇧ symbol doesn't look like an upwards facing arrow to you, then something (like your text editor, or
+   the font you're using) doesn't understand Unicode and may have converted the up arrow into another character.
 */
-/* In this style, the upwards arrow symbol used is ?, the Upwards Thick Arrow (U+21e7) */
 @-moz-document url-prefix("https://mail.google.com/mail/u/") {
     :root {
         --kbd-tooltip-fg-color: #666;
@@ -139,10 +142,10 @@
     .T-I[aria-label='Archive']::before        { content: 'e';  visibility: visible; }
     .T-I[aria-label='Report spam']::before    { content: '!';  visibility: visible; }
     .T-I[aria-label='Delete']::before         { content: '#';  visibility: visible; }
-    .T-I[aria-label='Mark as read']::before   { content: '?I'; visibility: visible; }
-    .T-I[aria-label='Mark as unread']::before { content: '?U'; visibility: visible; }
+    .T-I[aria-label='Mark as read']::before   { content: '⇧I'; visibility: visible; }
+    .T-I[aria-label='Mark as unread']::before { content: '⇧U'; visibility: visible; }
     .T-I[aria-label='Snooze']::before         { content: 'b';  visibility: visible; }
-    .T-I[aria-label='Add to tasks']::before   { content: '?T'; visibility: visible; }
+    .T-I[aria-label='Add to tasks']::before   { content: '⇧T'; visibility: visible; }
     .T-I[aria-label='Move to']::before        { content: 'v';  visibility: visible; }
     .T-I[aria-label='Labels']::before         { content: 'l';  visibility: visible; }
     .T-I[aria-label='More'].mA::before        { content: '.';  visibility: visible; }
@@ -153,7 +156,7 @@
     /* Conversation view right side buttons */
     .T-I[aria-label='Collapse all']::before   { content: ':';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
     .T-I[aria-label='Expand all']::before     { content: ';';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
-    .T-I[aria-label='In new window']::before  { content: '?R'; visibility: visible; transform: scale(1); opacity: 1; left: 0; }
+    .T-I[aria-label='In new window']::before  { content: '⇧R'; visibility: visible; transform: scale(1); opacity: 1; left: 0; }
     .T-I[aria-label='Reply']::before       { content: 'r|a|f'; visibility: visible; transform: scale(1); opacity: 1; left: -1.05em; width: 3.4em }
     
     .adi, .amF /*Unhide parents of previous and next buttons*/ {

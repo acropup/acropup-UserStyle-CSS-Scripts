@@ -3,6 +3,7 @@
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @version        1.0.0
 @description    Within Gmail, display Gmail's default keyboard shortcuts for most commands next to their buttons. ⇧ symbol denotes the Shift key.
+@preprocessor   less
 @author         Shane Burgess
 ==/UserStyle== */
 
@@ -10,7 +11,6 @@
    or go to https://support.google.com/mail/answer/6594?hl=en-GB 
    This style assumes you are using the default keyboard shortcuts.
    If you have customized them, you'll have to customize this script to match (it's not difficult).
-
    In this style, the upwards arrow symbol used is ⇧, a Unicode symbol called the Upwards Thick Arrow (U+21e7).
    If the ⇧ symbol doesn't look like an upwards facing arrow to you, then something (like your text editor, or
    the font you're using) doesn't understand Unicode and may have converted the up arrow into another character.
@@ -23,6 +23,33 @@
         --kbd-tooltip-height: 20px;
         --kbd-tooltip-font: Consolas, 'Courier New', Monaco, Monospace;
         --kbd-tooltip-box-shadow: initial;
+    }
+    
+    .base-fmt() {
+        content: 'xxx';
+        position: absolute;
+        text-align: center;
+        width: var(--kbd-tooltip-width);
+        height: var(--kbd-tooltip-height);
+        font-size: .875rem;
+        font-family: var(--kbd-tooltip-font);
+        color: var(--kbd-tooltip-fg-color);
+        background-color: var(--kbd-tooltip-bg-color);
+        box-shadow: var(--kbd-tooltip-box-shadow);
+        border-radius: 5px;
+    }
+    
+    .flex-centered() {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .full-viz() {
+        visibility: visible;
+        transform: scale(1);
+        opacity: 1;
+        left: 0;
     }
     
     /* Remind user to enable advanced shortcuts */
@@ -52,63 +79,49 @@
     
     /* Search box */
     button[aria-label="Search Mail"]::after {
+        .base-fmt();
+        .flex-centered();
         content: '/';
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         bottom: -15%;
         left: calc(50% - .75em);
-        width: var(--kbd-tooltip-width);
-        height: var(--kbd-tooltip-height);
-        font-family: var(--kbd-tooltip-font);
-        color: var(--kbd-tooltip-fg-color);
-        background-color: var(--kbd-tooltip-bg-color);
-        border-radius: 5px;
-        box-shadow: var(--kbd-tooltip-box-shadow);
     }
     
     /* Email folders list */
-    .TK .aim {
-        position: relative;
-    }
-    .TK .aim > div::before,
-    .T-I-KE::after, /*Compose new email*/ 
-    .aND.pp.aj3:not(:focus)::before /*Hangouts contacts list*/ {
-        content: 'xxx';
+    .TK .aim > div::before, /*Email folders*/
+    .T-I-KE::after,         /*Compose new email*/ 
+    .aND.pp.aj3::before     /*Hangouts contacts list*/ {
+        .base-fmt();
         visibility: hidden;
-        position: absolute;
-        text-align: center;
         top: 10%;
         left: 4px;
-        width: var(--kbd-tooltip-width);
-        height: var(--kbd-tooltip-height);
-        font-family: var(--kbd-tooltip-font);
-        color: var(--kbd-tooltip-fg-color);
-        background-color: var(--kbd-tooltip-bg-color);
-        border-radius: 5px;
-        box-shadow: var(--kbd-tooltip-box-shadow);
     }
-    .TK .aim div[data-tooltip='Inbox']::before    { content: 'gi'; visibility: visible; }
-    .TK .aim div[data-tooltip='Starred']::before  { content: 'gs'; visibility: visible; }
-    .TK .aim div[data-tooltip='Snoozed']::before  { content: 'gb'; visibility: visible; }
-    .TK .aim div[data-tooltip='Sent']::before     { content: 'gt'; visibility: visible; }
-    .TK .aim div[data-tooltip='Drafts']::before   { content: 'gd'; visibility: visible; }
-    .TK .aim div[data-tooltip='All Mail']::before { content: 'ga'; visibility: visible; }
+	.TK .aim {
+        position: relative;
+        @folders: {
+            gi: 'Inbox';
+            gs: 'Starred';
+            gb: 'Snoozed';
+            gt: 'Sent';
+            gd: 'Drafts';
+            ga: 'All Mail';
+        };
+        each(@folders; {
+            & > div[data-tooltip=@{value}]::before { content: '@{key}'; visibility: visible; }
+        });
+    }
     .T-I-KE::after { /*Compose new email*/ 
         content: 'c';
         visibility: visible;
         line-height: 1rem;
         top: 15px;
         left: 124px;
-        width: calc(.8*var(--kbd-tooltip-width));
-        height: calc(.8*var(--kbd-tooltip-height));
+        width: calc(.8 * var(--kbd-tooltip-width));
+        height: calc(.8 * var(--kbd-tooltip-height));
     }
-    .aND.pp.aj3:not(:focus)::before /*Hangouts contacts list*/ {
+    .aND.pp.aj3::before { /*Hangouts contacts list*/
         content: 'hc';
         visibility: visible;
         position: relative;
-        font-size: .875rem;
         top: 84px;
         block-size: 20px;
         left: calc(100% - 45px);
@@ -122,42 +135,32 @@
     .adg.T-I-Js-Gs:not([aria-disabled]) span::before, /*Older conversation*/
     .amD.T-I-Js-IF:not([aria-disabled]) span::before, /*Go to previous page*/
     .amD.T-I-Js-Gs:not([aria-disabled]) span::before  /*Go to next page*/ {
-        content: 'xxx';
-        font-size: .875rem;
+        .base-fmt();
         visibility: hidden;
-        position: absolute;
-        display: flex;
-        justify-content: center;
         top: 110%;
-        width: var(--kbd-tooltip-width);
-        height: calc(var(--kbd-tooltip-height) * .85);
-        font-family: var(--kbd-tooltip-font);
-        color: var(--kbd-tooltip-fg-color);
-        background-color: var(--kbd-tooltip-bg-color);
-        border-radius: 5px;
-        box-shadow: var(--kbd-tooltip-box-shadow);
+        height: calc(.85 * var(--kbd-tooltip-height));
     }
-    .T-I[aria-label^='Back to ']::before      { content: 'u';  visibility: visible; }
-    .T-I[aria-label='Select']::before         { content: ',';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
-    .T-I[aria-label='Archive']::before        { content: 'e';  visibility: visible; }
-    .T-I[aria-label='Report spam']::before    { content: '!';  visibility: visible; }
-    .T-I[aria-label='Delete']::before         { content: '#';  visibility: visible; }
+    .T-I[aria-label^='Back to ']::before      { content:  'u'; visibility: visible; }
+    .T-I[aria-label='Select']::before         { content:  ','; .full-viz(); }
+    .T-I[aria-label='Archive']::before        { content:  'e'; visibility: visible; }
+    .T-I[aria-label='Report spam']::before    { content:  '!'; visibility: visible; }
+    .T-I[aria-label='Delete']::before         { content:  '#'; visibility: visible; }
     .T-I[aria-label='Mark as read']::before   { content: '⇧I'; visibility: visible; }
     .T-I[aria-label='Mark as unread']::before { content: '⇧U'; visibility: visible; }
-    .T-I[aria-label='Snooze']::before         { content: 'b';  visibility: visible; }
+    .T-I[aria-label='Snooze']::before         { content:  'b'; visibility: visible; }
     .T-I[aria-label='Add to tasks']::before   { content: '⇧T'; visibility: visible; }
-    .T-I[aria-label='Move to']::before        { content: 'v';  visibility: visible; }
-    .T-I[aria-label='Labels']::before         { content: 'l';  visibility: visible; }
-    .T-I[aria-label='More'].mA::before        { content: '.';  visibility: visible; }
+    .T-I[aria-label='Move to']::before        { content:  'v'; visibility: visible; }
+    .T-I[aria-label='Labels']::before         { content:  'l'; visibility: visible; }
+    .T-I[aria-label='More'].mA::before        { content:  '.'; visibility: visible; }
     .adg.T-I-Js-IF:not([aria-disabled]) span::before /*Newer conversation*/ { content:  'k'; visibility: visible; }
     .adg.T-I-Js-Gs:not([aria-disabled]) span::before /*Older conversation*/ { content:  'j'; visibility: visible; }
     .amD.T-I-Js-IF:not([aria-disabled]) span::before /*Go to previous page*/{ content: 'gp'; visibility: visible; }
     .amD.T-I-Js-Gs:not([aria-disabled]) span::before /*Go to next page*/    { content: 'gn'; visibility: visible; }
     /* Conversation view right side buttons */
-    .T-I[aria-label='Collapse all']::before   { content: ':';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
-    .T-I[aria-label='Expand all']::before     { content: ';';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
-    .T-I[aria-label='In new window']::before  { content: '⇧R'; visibility: visible; transform: scale(1); opacity: 1; left: 0; }
-    .T-I[aria-label='Reply']::before       { content: 'r|a|f'; visibility: visible; transform: scale(1); opacity: 1; left: -1.05em; width: 3.4em }
+    .T-I[aria-label='Collapse all']::before   { content:  ':'; .full-viz(); }
+    .T-I[aria-label='Expand all']::before     { content:  ';'; .full-viz(); }
+    .T-I[aria-label='In new window']::before  { content: '⇧R'; .full-viz(); }
+    .T-I[aria-label='Reply']::before       { content: 'r|a|f'; .full-viz(); left: -1.05em; width: 3.4em; }
     
     .adi, .amF /*Unhide parents of previous and next buttons*/ {
         display: unset;
@@ -166,49 +169,30 @@
     }
     
     /* Select menu */
-    .G-tF .J-N::before {
-        content: 'xxx';
-        position: absolute;
-        text-align: center;
-        top: 10%;
-        left: 18px;
-        width: var(--kbd-tooltip-width);
-        height: var(--kbd-tooltip-height);
-        font-family: var(--kbd-tooltip-font);
-        background-color: var(--kbd-tooltip-bg-color);
-        border-radius: 5px;
-        box-shadow: var(--kbd-tooltip-box-shadow);
+    .G-tF .J-N {
+		&::before {
+			.base-fmt();
+			top: 10%;
+			left: 18px;
+		}
+		each('*a','*n','*r','*u','*s','*t'; {
+			&:nth-child(@{index})::before { content: @value; }
+		});
     }
-    .G-tF .J-N:nth-child(1)::before { content: '*a'; }
-    .G-tF .J-N:nth-child(2)::before { content: '*n'; }
-    .G-tF .J-N:nth-child(3)::before { content: '*r'; }
-    .G-tF .J-N:nth-child(4)::before { content: '*u'; }
-    .G-tF .J-N:nth-child(5)::before { content: '*s'; }
-    .G-tF .J-N:nth-child(6)::before { content: '*t'; }
     
     /* Select / Star on active mailbox row (Flag Important shortcut doesn't work here) */
     .zA.btb .oZ-x3::after,
     .zA.btb .apU::after {
-        content: 'xxx';
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        .base-fmt();
+        .flex-centered();
         top: 50%;
         right: 4px;
         width: 1em;
-        height: 80%;
-        font-family: var(--kbd-tooltip-font);
-        color: var(--kbd-tooltip-fg-color);
-        background-color: var(--kbd-tooltip-bg-color);
-        border-radius: 5px;
-        box-shadow: var(--kbd-tooltip-box-shadow);
+        height: 1em;
         z-index: 1;
     }
     .zA.btb .oZ-x3::after { content: 'x'; }
     .zA.btb .apU::after   { content: 's'; }
-    .zA.btb .apU {
-        position: relative; 
-    }
+    .zA.btb .apU { position: relative; }
     
 }

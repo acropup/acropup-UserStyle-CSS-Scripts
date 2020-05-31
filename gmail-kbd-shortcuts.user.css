@@ -1,0 +1,211 @@
+/* ==UserStyle==
+@name           Gmail Keyboard Shortcut Tooltips
+@namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.0.0
+@description    Within Gmail, display Gmail's default keyboard shortcuts for most commands next to their buttons.
+@author         Shane Burgess
+==/UserStyle== */
+
+/* Within Gmail, while no textbox is selected, type a question mark to get a shortcut list,
+   or go to https://support.google.com/mail/answer/6594?hl=en-GB 
+   This style assumes you are using the default keyboard shortcuts.
+   If you have customized them, you'll have to customize this script to match (it's not difficult).
+*/
+/* In this style, the upwards arrow symbol used is ?, the Upwards Thick Arrow (U+21e7) */
+@-moz-document url-prefix("https://mail.google.com/mail/u/") {
+    :root {
+        --kbd-tooltip-fg-color: #666;
+        --kbd-tooltip-bg-color: #DDD;
+        --kbd-tooltip-width: 1.25rem;
+        --kbd-tooltip-height: 20px;
+        --kbd-tooltip-font: Consolas, 'Courier New', Monaco, Monospace;
+        --kbd-tooltip-box-shadow: initial;
+    }
+    
+    /* Remind user to enable advanced shortcuts */
+    .wa.aou {
+        visibility: hidden;
+        display: unset;
+    }
+    .wa .aov::before {
+        content: "Type '?' and enable all shortcuts";
+        position: fixed;
+        visibility: visible;
+        top: 8px;
+        right: 103px;
+        width: 10rem;
+        height: 36px;
+        padding: 6px;
+        color: var(--kbd-tooltip-fg-color);
+        background-color: var(--kbd-tooltip-bg-color);
+        border-radius: 5px;
+        transition: opacity .5s ease-out, transform .4s cubic-bezier(0, 1, 0, 1)
+    }
+    .wa .aov.aox::before {
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity .5s ease, transform 1.5s ease-in;
+    }
+    
+    /* Search box */
+    button[aria-label="Search Mail"]::after {
+        content: '/';
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: -15%;
+        left: calc(50% - .75em);
+        width: var(--kbd-tooltip-width);
+        height: var(--kbd-tooltip-height);
+        font-family: var(--kbd-tooltip-font);
+        color: var(--kbd-tooltip-fg-color);
+        background-color: var(--kbd-tooltip-bg-color);
+        border-radius: 5px;
+        box-shadow: var(--kbd-tooltip-box-shadow);
+    }
+    
+    /* Email folders list */
+    .TK .aim {
+        position: relative;
+    }
+    .TK .aim > div::before,
+    .T-I-KE::after, /*Compose new email*/ 
+    .aND.pp.aj3:not(:focus)::before /*Hangouts contacts list*/ {
+        content: 'xxx';
+        visibility: hidden;
+        position: absolute;
+        text-align: center;
+        top: 10%;
+        left: 4px;
+        width: var(--kbd-tooltip-width);
+        height: var(--kbd-tooltip-height);
+        font-family: var(--kbd-tooltip-font);
+        color: var(--kbd-tooltip-fg-color);
+        background-color: var(--kbd-tooltip-bg-color);
+        border-radius: 5px;
+        box-shadow: var(--kbd-tooltip-box-shadow);
+    }
+    .TK .aim div[data-tooltip='Inbox']::before    { content: 'gi'; visibility: visible; }
+    .TK .aim div[data-tooltip='Starred']::before  { content: 'gs'; visibility: visible; }
+    .TK .aim div[data-tooltip='Snoozed']::before  { content: 'gb'; visibility: visible; }
+    .TK .aim div[data-tooltip='Sent']::before     { content: 'gt'; visibility: visible; }
+    .TK .aim div[data-tooltip='Drafts']::before   { content: 'gd'; visibility: visible; }
+    .TK .aim div[data-tooltip='All Mail']::before { content: 'ga'; visibility: visible; }
+    .T-I-KE::after { /*Compose new email*/ 
+        content: 'c';
+        visibility: visible;
+        line-height: 1rem;
+        top: 15px;
+        left: 124px;
+        width: calc(.8*var(--kbd-tooltip-width));
+        height: calc(.8*var(--kbd-tooltip-height));
+    }
+    .aND.pp.aj3:not(:focus)::before /*Hangouts contacts list*/ {
+        content: 'hc';
+        visibility: visible;
+        position: relative;
+        font-size: .875rem;
+        top: 84px;
+        block-size: 20px;
+        left: calc(100% - 45px);
+        z-index: 1;
+    }
+    
+    
+    /* Toolbar Buttons */
+    .T-I[aria-label]::before, /*All Left-aligned Toolbar Buttons*/
+    .adg.T-I-Js-IF:not([aria-disabled]) span::before, /*Newer conversation*/
+    .adg.T-I-Js-Gs:not([aria-disabled]) span::before, /*Older conversation*/
+    .amD.T-I-Js-IF:not([aria-disabled]) span::before, /*Go to previous page*/
+    .amD.T-I-Js-Gs:not([aria-disabled]) span::before  /*Go to next page*/ {
+        content: 'xxx';
+        font-size: .875rem;
+        visibility: hidden;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 110%;
+        width: var(--kbd-tooltip-width);
+        height: calc(var(--kbd-tooltip-height) * .85);
+        font-family: var(--kbd-tooltip-font);
+        color: var(--kbd-tooltip-fg-color);
+        background-color: var(--kbd-tooltip-bg-color);
+        border-radius: 5px;
+        box-shadow: var(--kbd-tooltip-box-shadow);
+    }
+    .T-I[aria-label^='Back to ']::before      { content: 'u';  visibility: visible; }
+    .T-I[aria-label='Select']::before         { content: ',';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
+    .T-I[aria-label='Archive']::before        { content: 'e';  visibility: visible; }
+    .T-I[aria-label='Report spam']::before    { content: '!';  visibility: visible; }
+    .T-I[aria-label='Delete']::before         { content: '#';  visibility: visible; }
+    .T-I[aria-label='Mark as read']::before   { content: '?I'; visibility: visible; }
+    .T-I[aria-label='Mark as unread']::before { content: '?U'; visibility: visible; }
+    .T-I[aria-label='Snooze']::before         { content: 'b';  visibility: visible; }
+    .T-I[aria-label='Add to tasks']::before   { content: '?T'; visibility: visible; }
+    .T-I[aria-label='Move to']::before        { content: 'v';  visibility: visible; }
+    .T-I[aria-label='Labels']::before         { content: 'l';  visibility: visible; }
+    .T-I[aria-label='More'].mA::before        { content: '.';  visibility: visible; }
+    .adg.T-I-Js-IF:not([aria-disabled]) span::before /*Newer conversation*/ { content:  'k'; visibility: visible; }
+    .adg.T-I-Js-Gs:not([aria-disabled]) span::before /*Older conversation*/ { content:  'j'; visibility: visible; }
+    .amD.T-I-Js-IF:not([aria-disabled]) span::before /*Go to previous page*/{ content: 'gp'; visibility: visible; }
+    .amD.T-I-Js-Gs:not([aria-disabled]) span::before /*Go to next page*/    { content: 'gn'; visibility: visible; }
+    /* Conversation view right side buttons */
+    .T-I[aria-label='Collapse all']::before   { content: ':';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
+    .T-I[aria-label='Expand all']::before     { content: ';';  visibility: visible; transform: scale(1); opacity: 1; left: 0; }
+    .T-I[aria-label='In new window']::before  { content: '?R'; visibility: visible; transform: scale(1); opacity: 1; left: 0; }
+    .T-I[aria-label='Reply']::before       { content: 'r|a|f'; visibility: visible; transform: scale(1); opacity: 1; left: -1.05em; width: 3.4em }
+    
+    .adi, .amF /*Unhide parents of previous and next buttons*/ {
+        display: unset;
+        font-size: 0px;
+        margin-right: unset;
+    }
+    
+    /* Select menu */
+    .G-tF .J-N::before {
+        content: 'xxx';
+        position: absolute;
+        text-align: center;
+        top: 10%;
+        left: 18px;
+        width: var(--kbd-tooltip-width);
+        height: var(--kbd-tooltip-height);
+        font-family: var(--kbd-tooltip-font);
+        background-color: var(--kbd-tooltip-bg-color);
+        border-radius: 5px;
+        box-shadow: var(--kbd-tooltip-box-shadow);
+    }
+    .G-tF .J-N:nth-child(1)::before { content: '*a'; }
+    .G-tF .J-N:nth-child(2)::before { content: '*n'; }
+    .G-tF .J-N:nth-child(3)::before { content: '*r'; }
+    .G-tF .J-N:nth-child(4)::before { content: '*u'; }
+    .G-tF .J-N:nth-child(5)::before { content: '*s'; }
+    .G-tF .J-N:nth-child(6)::before { content: '*t'; }
+    
+    /* Select / Star on active mailbox row (Flag Important shortcut doesn't work here) */
+    .zA.btb .oZ-x3::after,
+    .zA.btb .apU::after {
+        content: 'xxx';
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        right: 4px;
+        width: 1em;
+        height: 80%;
+        font-family: var(--kbd-tooltip-font);
+        color: var(--kbd-tooltip-fg-color);
+        background-color: var(--kbd-tooltip-bg-color);
+        border-radius: 5px;
+        box-shadow: var(--kbd-tooltip-box-shadow);
+        z-index: 1;
+    }
+    .zA.btb .oZ-x3::after { content: 'x'; }
+    .zA.btb .apU::after   { content: 's'; }
+    .zA.btb .apU {
+        position: relative; 
+    }
+    
+}

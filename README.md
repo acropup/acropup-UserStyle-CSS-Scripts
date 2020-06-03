@@ -6,11 +6,13 @@ Read the tops of individual files for descriptions of what they do.
 ## Installation
 
 ### 1. Get the [Stylus] browser extension
-[![Stylus for Chrome](https://img.shields.io/badge/Get_Stylus_for-Chrome-blue.svg)][StylusChrome]
-[![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)][StylusFirefox]
+[![Stylus for Chrome](https://img.shields.io/badge/Get_Stylus_for-Chrome-blue.svg)][StylusChrome]<br>
+[![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)][StylusFirefox]<br>
 [![Stylus for Opera](https://img.shields.io/badge/Get_Stylus_for-Opera-red.svg)][StylusOpera]
+
 ### 2. Add scripts to Stylus
-[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]
+[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
+[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>
 
 Alternatively, if you view any UserScript in GitHub and click the Raw button in the top right corner of the viewer, Stylus should recognize it and offer to install the script.
 ### 3. Configure and enjoy
@@ -30,6 +32,7 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [CSS Guards]: http://lesscss.org/features/#css-guards-feature
 
 [RawYoutube]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/youtube.user.css
+[RawGmailKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/gmail-kbd-shortcuts.user.css
 
 [1]: https://github.com/acropup/acropup-AdBlock-Filters
 [uBlock Origin]: https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm

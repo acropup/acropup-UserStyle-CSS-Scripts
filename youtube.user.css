@@ -1,10 +1,12 @@
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.9
+@homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.0.10
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
+
 @var range    TitleLines "Title lines shown on homepage" [3, 0, 4, 1]
 @var checkbox HidePlaylists "Playlists hidden from search results and recommendations" 1
 @var checkbox CCToBottom "Captions stay at bottom of video" 1
@@ -364,14 +366,16 @@ ytd-expander.ytd-video-secondary-info-renderer {
 /* SHOW MORE/SHOW LESS buttons more visible */
 ytd-video-secondary-info-renderer paper-button#more.ytd-expander,
 ytd-video-secondary-info-renderer paper-button#less.ytd-expander {
-    background-color: var(--yt-opalescence-grey-opacity-lighten-3);
+    background-color: var(--yt-spec-10-percent-layer);
+    color: var(--yt-spec-text-secondary);
     padding: 0 1em 0.5em 1em;
     margin: 1em 0 0;
 }
 /* Read more/Show less buttons more visible */
 #comments paper-button#more.ytd-expander,
 #comments paper-button#less.ytd-expander {
-    background-color: var(--yt-opalescence-grey-opacity-lighten-3);
+    background-color: var(--yt-spec-10-percent-layer);
+    color: var(--yt-spec-text-secondary);
     margin: .8em 0 0 0;
     padding: 2px 4px 0px 4px;
 }

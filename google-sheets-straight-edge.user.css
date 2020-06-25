@@ -1,0 +1,68 @@
+﻿/* ==UserStyle==
+@name           Google Sheets - Active row/column visual aid
+@namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.0.0
+@description    For any active cell or highlighted range in Google Sheets, the border is extended indefinitely in the form of dashed lines. This makes it easier to see which row/column you are on.
+@author         Shane Burgess
+==/UserStyle== */
+
+@-moz-document url-prefix("https://docs.google.com/spreadsheets/d/") {
+
+
+/* Active cell border */
+.range-border.active-cell-border::before {
+    content: '';
+    border: 1px dashed rgba(60, 180, 60, .5);
+    float: left;
+    position: absolute;
+    top: -9999em;
+    bottom: -9999em;
+    left: -9999em;
+    right:-9999em;
+}
+
+.range-border.active-cell-border:nth-child(1)::before /* top */ {
+    top: -2px;
+}
+.range-border.active-cell-border:nth-child(2)::before /* bottom */ {
+    top: 0.75px;
+}
+.range-border.active-cell-border:nth-child(3)::before /* right */ {
+    left: 0px;
+}
+.range-border.active-cell-border:nth-child(4)::before /* left */ {
+    left: -2px;
+}
+
+/* Selected range borders */
+.selection {
+    background-color: rgba(14, 101, 235, 0.1) !important;
+    opacity: 1 !important;
+}
+
+.selection::before, .selection::after {
+    content: '';
+    box-sizing: border-box;
+    border: 1px dashed rgba(60, 180, 60, .5);
+    float: left;
+    position: absolute;
+}
+
+/* Vertical lines around selected ranges */
+.selection::before {
+    left:-1px;
+    top: -9999em;
+    bottom: -9999em;
+    width: calc(100% + 1px);
+}
+
+/* Horizontal lines around selected ranges */
+.selection::after {
+    top: -1px;
+    left: -9999em;
+    right:-9999em;
+    height: calc(100% + 1px);;
+}
+
+/* .range-border.selection-border might also be of use */
+}

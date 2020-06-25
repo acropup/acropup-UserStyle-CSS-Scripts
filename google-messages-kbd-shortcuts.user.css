@@ -1,0 +1,100 @@
+﻿/* ==UserStyle==
+@name           Keyboard shortcut tooltips for messages.google.com
+@namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.0.0
+@description    Within Google Messages for web (messages.google.com), display the most useful keyboard shortcuts next to their buttons.
+@author         Shane Burgess
+==/UserStyle== */
+
+/* To see a full list of keyboard shortcuts in Google Messages for web, type a question mark while
+   not in a text box.
+*/
+@-moz-document url-prefix("https://messages.google.com/web/conversations") {
+    
+    /* General formatting for all tooltips */
+    mws-conversation-list-item > a.list-item.selected::before,
+    mws-conversation-list-item > a.list-item.selected::after,
+    mw-main-nav > div.main-nav-header::before,
+    mws-autosize-textarea.input:not(:focus-within)::before,
+    .bottom-anchored-content > .content:not(:focus-within)::before,
+    button[data-e2e-picker-button]:first-child::before,
+    button[data-e2e-picker-button]::after,
+    mw-fab-link.start-chat::before {
+        position: absolute;
+        font-family: monospace;
+        font-size: 13px;
+        line-height: initial;
+        color: #bbbbc0;
+        background-color: #555558;
+        padding: 1px 4px;
+        border-radius: 4px;
+        z-index: 1;
+    }
+    
+    /* Previous / Next conversation */
+    mws-conversation-list-item {
+        position: relative;
+    }
+    mws-conversation-list-item > a.list-item.selected::before,
+    mws-conversation-list-item > a.list-item.selected::after {
+        content: 'Ctrl + ,';
+        top: -18px;
+        left: 265px;
+        white-space: nowrap;
+    }
+    mws-conversation-list-item > a.list-item.selected::after {
+        content: 'Ctrl + .';
+        top: 73px;
+    }
+    
+    /* Focus on conversation list */
+    mw-main-nav > div.main-nav-header::before {
+        content: 'Ctrl+Alt+Y';
+        top: 130px;
+        right: 10px;
+    }
+    
+    /* Focus on message textbox */
+    mws-autosize-textarea.input:not(:focus-within)::before {
+        content: 'Ctrl+Alt+I';
+        top: -13px;
+    }
+    
+    /* Focus on messages in conversation */
+    .bottom-anchored-content {
+        /* Having transforms breaks position:fixed; for children */
+        transform: unset !important;
+    }
+    .bottom-anchored-content > .content:not(:focus-within)::before {
+        content: 'Ctrl+Alt+U';
+        position: fixed;
+        top: 76px;
+        left: 8px;
+    }
+    
+    /* Insert images buttons */
+    button[data-e2e-picker-button]:first-child::before,
+    button[data-e2e-picker-button]::after {
+        bottom: 42px;
+        height: 15px;
+        right: 8px;
+    }
+    button[data-e2e-picker-button]:first-child::before {
+        content: 'Ctrl+Alt';
+        right: 32px;
+    }
+    button[data-e2e-picker-button="EMOJI"]::after      { content: '+E'; }
+    button[data-e2e-picker-button="STICKER"]::after    { content: '+S'; }
+    button[data-e2e-picker-button="GIF"]::after        { content: '+G'; }
+    button[data-e2e-picker-button="ATTACHMENT"]::after { content: '+A'; }
+    
+    /* Start new chat */
+    mw-fab-link.start-chat {
+        position: relative;
+    }
+    mw-fab-link.start-chat::before {
+        content: 'Ctrl+Alt+C';
+        top: -19px;
+        left: 26px;
+    }
+}

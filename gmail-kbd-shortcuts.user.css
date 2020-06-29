@@ -1,7 +1,7 @@
-/* ==UserStyle==
+﻿/* ==UserStyle==
 @name           Gmail Keyboard Shortcut Tooltips
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.0
+@version        1.0.1
 @description    Within Gmail, display Gmail's default keyboard shortcuts for most commands next to their buttons. ⇧ symbol denotes the Shift key.
 @preprocessor   less
 @author         Shane Burgess
@@ -52,7 +52,11 @@
         left: 0;
     }
     
-    /* Remind user to enable advanced shortcuts */
+    /* Remind user to enable advanced shortcuts
+       This is the only change to the DOM when advanced shortcuts are enabled/disabled,
+       but unfortunately this part of the DOM doesn't exist at all until after the user
+       brings up the keyboard tips overlay with '?'. As a result, this notification is 
+       mostly useless. */
     .wa.aou {
         visibility: hidden;
         display: unset;
@@ -78,7 +82,7 @@
     }
     
     /* Search box */
-    button[aria-label="Search Mail"]::after {
+    button[aria-label="Search mail"]::after {
         .base-fmt();
         .flex-centered();
         content: '/';
@@ -130,32 +134,36 @@
     
     
     /* Toolbar Buttons */
-    .T-I[aria-label]::before, /*All Left-aligned Toolbar Buttons*/
+    /* Note that most left-aligned toolbar buttons start with their name in the 'title' attribute, but as soon 
+       as the user hovers or focuses on the toolbar, 'title' attribute is removed and 'aria-label' is added. */
+    .T-I[title]::before,      /*All Left-aligned Toolbar Buttons, pre-focus */
+    .T-I[aria-label]::before, /*All Left-aligned Toolbar Buttons, post-focus*/
     .adg.T-I-Js-IF:not([aria-disabled]) span::before, /*Newer conversation*/
     .adg.T-I-Js-Gs:not([aria-disabled]) span::before, /*Older conversation*/
-    .amD.T-I-Js-IF:not([aria-disabled]) span::before, /*Go to previous page*/
+    .amD.T-I-Js-IF:not([aria-disabled]) span::before, /*Go to prev page*/
     .amD.T-I-Js-Gs:not([aria-disabled]) span::before  /*Go to next page*/ {
         .base-fmt();
         visibility: hidden;
         top: 110%;
         height: calc(.85 * var(--kbd-tooltip-height));
     }
-    .T-I[aria-label^='Back to ']::before      { content:  'u'; visibility: visible; }
-    .T-I[aria-label='Select']::before         { content:  ','; .full-viz(); }
-    .T-I[aria-label='Archive']::before        { content:  'e'; visibility: visible; }
-    .T-I[aria-label='Report spam']::before    { content:  '!'; visibility: visible; }
-    .T-I[aria-label='Delete']::before         { content:  '#'; visibility: visible; }
-    .T-I[aria-label='Mark as read']::before   { content: '⇧I'; visibility: visible; }
-    .T-I[aria-label='Mark as unread']::before { content: '⇧U'; visibility: visible; }
-    .T-I[aria-label='Snooze']::before         { content:  'b'; visibility: visible; }
-    .T-I[aria-label='Add to tasks']::before   { content: '⇧T'; visibility: visible; }
-    .T-I[aria-label='Move to']::before        { content:  'v'; visibility: visible; }
-    .T-I[aria-label='Labels']::before         { content:  'l'; visibility: visible; }
-    .T-I[aria-label='More'].mA::before        { content:  '.'; visibility: visible; }
-    .adg.T-I-Js-IF:not([aria-disabled]) span::before /*Newer conversation*/ { content:  'k'; visibility: visible; }
-    .adg.T-I-Js-Gs:not([aria-disabled]) span::before /*Older conversation*/ { content:  'j'; visibility: visible; }
-    .amD.T-I-Js-IF:not([aria-disabled]) span::before /*Go to previous page*/{ content: 'gp'; visibility: visible; }
-    .amD.T-I-Js-Gs:not([aria-disabled]) span::before /*Go to next page*/    { content: 'gn'; visibility: visible; }
+    .T-I[aria-label^='Back to ']::before,     .T-I[title^='Back to ']::before      { content:  'u'; visibility: visible; }
+    .T-I[aria-label^='Remove label ']::before,.T-I[title^='Remove label ']::before { content:  'y'; visibility: visible; }
+    .T-I[aria-label='Select']::before,        .T-I[title='Select']::before         { content:  ','; .full-viz(); }
+    .T-I[aria-label='Archive']::before,       .T-I[title='Archive']::before        { content:  'e'; visibility: visible; }
+    .T-I[aria-label='Report spam']::before,   .T-I[title='Report spam']::before    { content:  '!'; visibility: visible; }
+    .T-I[aria-label='Delete']::before,        .T-I[title='Delete']::before         { content:  '#'; visibility: visible; }
+    .T-I[aria-label='Mark as read']::before,  .T-I[title='Mark as read']::before   { content: '⇧I'; visibility: visible; }
+    .T-I[aria-label='Mark as unread']::before,.T-I[title='Mark as unread']::before { content: '⇧U'; visibility: visible; }
+    .T-I[aria-label='Snooze']::before,        .T-I[title='Snooze']::before         { content:  'b'; visibility: visible; }
+    .T-I[aria-label='Add to tasks']::before,  .T-I[title='Add to tasks']::before   { content: '⇧T'; visibility: visible; }
+    .T-I[aria-label='Move to']::before,       .T-I[title='Move to']::before        { content:  'v'; visibility: visible; }
+    .T-I[aria-label='Labels']::before,        .T-I[title='Labels']::before         { content:  'l'; visibility: visible; }
+    .T-I[aria-label='More'].mA::before,       .T-I[title='More'].mA::before        { content:  '.'; visibility: visible; }
+    .adg.T-I-Js-IF:not([aria-disabled]) span::before /*Newer conversation*/        { content:  'k'; visibility: visible; }
+    .adg.T-I-Js-Gs:not([aria-disabled]) span::before /*Older conversation*/        { content:  'j'; visibility: visible; }
+    .amD.T-I-Js-IF:not([aria-disabled]) span::before /*Go to previous page*/       { content: 'gp'; visibility: visible; }
+    .amD.T-I-Js-Gs:not([aria-disabled]) span::before /*Go to next page*/           { content: 'gn'; visibility: visible; }
     /* Conversation view right side buttons */
     .T-I[aria-label='Collapse all']::before   { content:  ':'; .full-viz(); }
     .T-I[aria-label='Expand all']::before     { content:  ';'; .full-viz(); }
@@ -182,7 +190,8 @@
     
     /* Select / Star on active mailbox row (Flag Important shortcut doesn't work here) */
     .zA.btb .oZ-x3::after,
-    .zA.btb .apU::after {
+    .zA.btb .apU::after,
+    #link_undo::after {
         .base-fmt();
         .flex-centered();
         top: 50%;
@@ -194,5 +203,12 @@
     .zA.btb .oZ-x3::after { content: 'x'; }
     .zA.btb .apU::after   { content: 's'; }
     .zA.btb .apU { position: relative; }
+    
+    /* Undo action, such as sent email, deleted email, etc. */
+    #link_undo::after {
+        content: 'z';
+        top: 10px;
+        right: -8.6px;
+    }
     
 }

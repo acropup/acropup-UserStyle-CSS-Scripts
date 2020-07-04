@@ -1,7 +1,7 @@
 ﻿/* ==UserStyle==
 @name           Keyboard shortcut tooltips for messages.google.com
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.0
+@version        1.0.1
 @description    Within Google Messages for web (messages.google.com), display the most useful keyboard shortcuts next to their buttons.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -10,6 +10,14 @@
    not in a text box.
 */
 @-moz-document url-prefix("https://messages.google.com/web/conversations") {
+    body {
+       --kbd-tooltip-bg-color: #ccc;
+       --kbd-tooltip-color: #5f6368;
+    }
+    body.dark-mode {
+       --kbd-tooltip-bg-color: #555558;
+       --kbd-tooltip-color: #bbbbc0;
+    }
     
     /* General formatting for all tooltips */
     mws-conversation-list-item > a.list-item.selected::before,
@@ -24,8 +32,8 @@
         font-family: monospace;
         font-size: 13px;
         line-height: initial;
-        color: #bbbbc0;
-        background-color: #555558;
+        color: var(--kbd-tooltip-color);
+        background-color: var(--kbd-tooltip-bg-color);
         padding: 1px 4px;
         border-radius: 4px;
         z-index: 1;

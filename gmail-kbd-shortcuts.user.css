@@ -1,7 +1,7 @@
-﻿/* ==UserStyle==
+/* ==UserStyle==
 @name           Gmail Keyboard Shortcut Tooltips
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.1
+@version        1.0.2
 @description    Within Gmail, display Gmail's default keyboard shortcuts for most commands next to their buttons. ⇧ symbol denotes the Shift key.
 @preprocessor   less
 @author         Shane Burgess
@@ -118,7 +118,7 @@
         visibility: visible;
         line-height: 1rem;
         top: 15px;
-        left: 124px;
+        left: 131px;
         width: calc(.8 * var(--kbd-tooltip-width));
         height: calc(.8 * var(--kbd-tooltip-height));
     }

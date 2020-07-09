@@ -63,6 +63,58 @@
     right:-9999em;
     height: calc(100% + 1px);;
 }
-
 /* .range-border.selection-border might also be of use */
+
+
+/* --- Spreadsheet Tabs Bar --- */
+
+/* Reduce tabs horizontal padding */
+.docs-gm .docs-sheet-tab {
+    padding: 0 4px 0 8px;
+}
+/* Bottom tabs bar padding around icons */
+.docs-material .docs-sheet-tab-caption .docs-icon {
+    margin-right: 3.5px;
+}
+.docs-material .docs-sheet-tab-caption .docs-sheet-lock-container {
+    margin-right: 1px;
+}
+.docs-material .docs-sheet-tab-caption .docs-sheet-database-icon-container {
+    margin-right: 4px;
+}
+
+/* Remove margin on left of bottom bar */
+#grid-bottom-bar > tbody > tr:last-child > td:first-child {
+    display: none;
+}
+
+/* Put a 'Move tabs left' arrow on the left side of the bottom bar */
+.docs-gm .docs-sheet-button.docs-sheet-left::before {
+    content: ' ';
+    position: fixed;
+    left: 62px;
+    bottom: 17px;
+    width: 0px;
+    height: 0px;
+    border: 5.5px solid transparent;
+    border-right: 5.5px solid #6a6a6a;
+}
+.docs-sheet-menu-button {
+    margin-right: 20px;
+}
+
+/* Hide the "Explore" button text */
+.waffle-assistant-entry-label {
+    display: none;
+}
+
+.docs-sheet-status-avs {
+    margin-right: 0px;
+}
+.docs-gm .docs-sheet-status-avs .goog-flat-menu-button {
+    max-width: 125px;
+}
+
+#grid-bottom-bar > tbody > tr:nth-child(2) > td.docs-sheet-outer-container > div > div.docs-sheet-container.goog-inline-block > div {
+    width: calc(100vw - 394px) !important;
 }

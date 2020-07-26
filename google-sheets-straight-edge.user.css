@@ -1,16 +1,19 @@
 ﻿/* ==UserStyle==
 @name           Google Sheets - Active row/column visual aid
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.0
+@version        1.0.1
 @description    For any active cell or highlighted range in Google Sheets, the border is extended indefinitely in the form of dashed lines. This makes it easier to see which row/column you are on.
 @author         Shane Burgess
 ==/UserStyle== */
-
+/* Feature list:
+    - Extends horizontal and vertical lines from the active cell to help your eye follow the current row.
+    - Creates space for more worksheet tabs along the bottom.
+    - Adds a "Scroll left" arrow to the left end of the worksheet tabs.
+*/
 @-moz-document url-prefix("https://docs.google.com/spreadsheets/d/") {
 
-
-/* Active cell border */
-.range-border.active-cell-border::before {
+  /* Active cell border */
+  .range-border.active-cell-border::before {
     content: '';
     border: 1px dashed rgba(60, 180, 60, .5);
     float: left;
@@ -19,77 +22,77 @@
     bottom: -9999em;
     left: -9999em;
     right:-9999em;
-}
+  }
 
-.range-border.active-cell-border:nth-child(1)::before /* top */ {
+  .range-border.active-cell-border:nth-child(1)::before /* top */ {
     top: -2px;
-}
-.range-border.active-cell-border:nth-child(2)::before /* bottom */ {
+  }
+  .range-border.active-cell-border:nth-child(2)::before /* bottom */ {
     top: 0.75px;
-}
-.range-border.active-cell-border:nth-child(3)::before /* right */ {
+  }
+  .range-border.active-cell-border:nth-child(3)::before /* right */ {
     left: 0px;
-}
-.range-border.active-cell-border:nth-child(4)::before /* left */ {
+  }
+  .range-border.active-cell-border:nth-child(4)::before /* left */ {
     left: -2px;
-}
+  }
 
-/* Selected range borders */
-.selection {
+  /* Selected range borders */
+  .selection {
     background-color: rgba(14, 101, 235, 0.1) !important;
     opacity: 1 !important;
-}
+  }
 
-.selection::before, .selection::after {
+  .selection::before, .selection::after {
     content: '';
     box-sizing: border-box;
     border: 1px dashed rgba(60, 180, 60, .5);
     float: left;
     position: absolute;
-}
+  }
 
-/* Vertical lines around selected ranges */
-.selection::before {
+  /* Vertical lines around selected ranges */
+  .selection::before {
     left:-1px;
     top: -9999em;
     bottom: -9999em;
     width: calc(100% + 1px);
-}
+  }
 
-/* Horizontal lines around selected ranges */
-.selection::after {
+  /* Horizontal lines around selected ranges */
+  .selection::after {
     top: -1px;
     left: -9999em;
     right:-9999em;
     height: calc(100% + 1px);;
-}
-/* .range-border.selection-border might also be of use */
+  }
+  /* .range-border.selection-border might also be of use */
 
 
-/* --- Spreadsheet Tabs Bar --- */
+  /* --- Spreadsheet Tabs Bar --- */
 
-/* Reduce tabs horizontal padding */
-.docs-gm .docs-sheet-tab {
+  /* Reduce tabs horizontal padding */
+  .docs-gm .docs-sheet-tab {
     padding: 0 4px 0 8px;
-}
-/* Bottom tabs bar padding around icons */
-.docs-material .docs-sheet-tab-caption .docs-icon {
+  }
+  /* Bottom tabs bar padding around icons */
+  .docs-material .docs-sheet-tab-caption .docs-icon {
     margin-right: 3.5px;
-}
-.docs-material .docs-sheet-tab-caption .docs-sheet-lock-container {
+  }
+  .docs-material .docs-sheet-tab-caption .docs-sheet-lock-container {
     margin-right: 1px;
-}
-.docs-material .docs-sheet-tab-caption .docs-sheet-database-icon-container {
+  }
+  .docs-material .docs-sheet-tab-caption .docs-sheet-database-icon-container {
     margin-right: 4px;
-}
+  }
 
-/* Remove margin on left of bottom bar */
-#grid-bottom-bar > tbody > tr:last-child > td:first-child {
+  /* Remove margin on left of bottom bar */
+  #grid-bottom-bar > tbody > tr:last-child > td:first-child {
     display: none;
-}
+  }
 
-/* Put a 'Move tabs left' arrow on the left side of the bottom bar */
-.docs-gm .docs-sheet-button.docs-sheet-left::before {
+  /* Put a 'Move tabs left' arrow on the left side of the bottom bar */
+  .docs-gm .docs-sheet-button.docs-sheet-left::before {
     content: ' ';
     position: fixed;
     left: 62px;
@@ -98,23 +101,24 @@
     height: 0px;
     border: 5.5px solid transparent;
     border-right: 5.5px solid #6a6a6a;
-}
-.docs-sheet-menu-button {
+  }
+  .docs-sheet-menu-button {
     margin-right: 20px;
-}
+  }
 
-/* Hide the "Explore" button text */
-.waffle-assistant-entry-label {
+  /* Hide the "Explore" button text */
+  .waffle-assistant-entry-label {
     display: none;
-}
+  }
 
-.docs-sheet-status-avs {
+  .docs-sheet-status-avs {
     margin-right: 0px;
-}
-.docs-gm .docs-sheet-status-avs .goog-flat-menu-button {
+  }
+  .docs-gm .docs-sheet-status-avs .goog-flat-menu-button {
     max-width: 125px;
-}
+  }
 
-#grid-bottom-bar > tbody > tr:nth-child(2) > td.docs-sheet-outer-container > div > div.docs-sheet-container.goog-inline-block > div {
+  #grid-bottom-bar > tbody > tr:nth-child(2) > td.docs-sheet-outer-container > div > div.docs-sheet-container.goog-inline-block > div {
     width: calc(100vw - 394px) !important;
-}
+  }
+  }

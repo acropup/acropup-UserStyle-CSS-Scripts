@@ -1,7 +1,7 @@
-﻿/* ==UserStyle==
+/* ==UserStyle==
 @name           Google Sheets - Active row/column visual aid
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.1
+@version        1.0.2
 @description    For any active cell or highlighted range in Google Sheets, the border is extended indefinitely in the form of dashed lines. This makes it easier to see which row/column you are on.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -12,7 +12,8 @@
 */
 @-moz-document url-prefix("https://docs.google.com/spreadsheets/d/") {
 
-  /* Active cell border */
+  /* --- Active cell border --- */
+  
   .range-border.active-cell-border::before {
     content: '';
     border: 1px dashed rgba(60, 180, 60, .5);
@@ -37,7 +38,9 @@
     left: -2px;
   }
 
-  /* Selected range borders */
+  
+  /* --- Selected range borders --- */
+  
   .selection {
     background-color: rgba(14, 101, 235, 0.1) !important;
     opacity: 1 !important;
@@ -92,11 +95,17 @@
   }
 
   /* Put a 'Move tabs left' arrow on the left side of the bottom bar */
-  .docs-gm .docs-sheet-button.docs-sheet-left::before {
+  .docs-gm .docs-sheet-button.docs-sheet-left::before, /* Clickable region */
+  .docs-gm .docs-sheet-button.docs-sheet-left::after { /* Triangle icon */
     content: ' ';
     position: fixed;
-    left: 62px;
-    bottom: 17px;
+    left: 63px;
+    bottom: 8px;
+    width: 21px;
+    height: 25px;
+  }
+  .docs-gm .docs-sheet-button.docs-sheet-left::after { /* Triangle icon */
+    bottom: 15px;
     width: 0px;
     height: 0px;
     border: 5.5px solid transparent;
@@ -110,7 +119,8 @@
   .waffle-assistant-entry-label {
     display: none;
   }
-
+  
+  /* Reduce the space taken by the selected Count/Sum/etc display in the bottom right  */
   .docs-sheet-status-avs {
     margin-right: 0px;
   }
@@ -121,4 +131,4 @@
   #grid-bottom-bar > tbody > tr:nth-child(2) > td.docs-sheet-outer-container > div > div.docs-sheet-container.goog-inline-block > div {
     width: calc(100vw - 394px) !important;
   }
-  }
+}

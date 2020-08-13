@@ -3,21 +3,30 @@ This is a compilation of UserStyle CSS scripts for Stylus/Stylish that make webs
 
 Read the tops of individual files for descriptions of what they do.
 
-## Installation
+# Installation
 
-### 1. Get the [Stylus] browser extension
+## 1. Get the [Stylus] browser extension
 [![Stylus for Chrome](https://img.shields.io/badge/Get_Stylus_for-Chrome-blue.svg)][StylusChrome]<br>
 [![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)][StylusFirefox]<br>
 [![Stylus for Opera](https://img.shields.io/badge/Get_Stylus_for-Opera-red.svg)][StylusOpera]
 
-### 2. Add scripts to Stylus
+## 2. Add scripts to Stylus
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
+### Gmail Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>
+![Gmail read mail view before and after][GmailKbdGif1]<br>
+![Gmail inbox before and after][GmailKbdGif2]<br>
+### Google Messages Keyboard Shortcuts
+[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user-238b8b.svg)][RawMsgsKbd]<br>
+![Google Messages contact list before and after][MsgsKbdGif1]<br>
+![Google Messages text box before and after][MsgsKbdGif2]<br>
+### Google Sheets Usability Improvements
+[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--sheets--straightedge.user.css-238b8b.svg)][RawSheets]<br>
 
 Alternatively, if you view any UserScript in GitHub and click the Raw button in the top right corner of the viewer, Stylus should recognize it and offer to install the script.
-### 3. Configure and enjoy
+## 3. Configure and enjoy
 The Stylus extension will show a gear icon for every installed style that has user customizations available. And you can always disable the entire UserStyle if you need to remind yourself of the sad life you once lived.
-## About
+# About
 These UserStyle scripts have not been tested on anything besides Chrome with the [Stylus extension][StylusChrome], and the particular websites as they exist today. Some of the scripts have been made user-configurable through Stylus using [@var declarations][StylusVar] in the `==UserStyle==` header, and the [LESS CSS preprocessor][LESS] is used for the [CSS Guards] feature to permit disabling of optional CSS selectors. Aside from that, the files are pure CSS and can be used on other platforms.
 
 *Note: I previously made [custom AdBlock filters][1] for a similar purpose, except that they run on the [uBlock Origin] extension. [Stylus] has proven valuable enough that it is now a full-time extension of mine, so I no longer need to use/abuse uBlock Origin in that way.*
@@ -33,6 +42,15 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 
 [RawYoutube]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/youtube.user.css
 [RawGmailKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/gmail-kbd-shortcuts.user.css
+[RawMsgsKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-messages-kbd-shortcuts.user
+[RawSheets]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-sheets-straightedge.user
+
+[GmailKbdGif1]: ./images/gmail_read_view.gif "Gmail read mail view before and after"
+[GmailKbdGif2]: ./images/gmail_inbox.gif "Gmail inbox before and after"
+[MsgsKbdGif1]: ./images/messages_contacts.gif "Google Messages contact list before and after"
+[MsgsKbdGif2]: ./images/messages_textbox.gif "Google Messages text box before and after"
+[SheetsGif1]: ./images/sheets_straightedge.gif "Google Sheets straightedge for active selection"
+[SheetsGif2]: ./images/sheets_tab_row.gif "Google Sheets tab row improvements"
 
 [1]: https://github.com/acropup/acropup-AdBlock-Filters
 [uBlock Origin]: https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm

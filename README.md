@@ -22,11 +22,9 @@ The Stylus extension will show a **gear icon** for every installed style that ha
 
 ## YouTube UI Refinements
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
-<p>
-<a href="./images/youtube_homepage.webp" ><img src="./images/youtube_homepage.webp" width=45%></a>
-<a href="./images/youtube_watch.webp" ><img src="./images/youtube_watch.webp" width=45%></a>
-<a href="./images/youtube_videowall.webp" ><img src="./images/youtube_videowall.webp" width=45%></a>
-</p>
+![YouTube homepage before and after][YtHome]<br>
+![YouTube watch page before and after][YtWatch]<br>
+![YouTube video wall before and after][YtWall]<br>
 
 ## Gmail Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>

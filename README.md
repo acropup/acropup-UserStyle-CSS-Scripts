@@ -11,21 +11,37 @@ Read the tops of individual files for descriptions of what they do.
 [![Stylus for Opera](https://img.shields.io/badge/Get_Stylus_for-Opera-red.svg)][StylusOpera]
 
 ## 2. Add scripts to Stylus
+Take a look at the [UserStyle previews below](#UserStyle-Examples) and click any of the ![Add to Stylus](https://img.shields.io/badge/Add_to_Stylus-555555.svg) links to install them.
+
+Alternatively, you may browse to any UserScript file on GitHub and click the **Raw** button in the top right corner of the viewer. The Stylus extension should recognize the script and offer to install it.
+
+## 3. Configure and enjoy
+The Stylus extension will show a **gear icon** for every installed style that has user customizations available. And you can always choose to disable the entire UserStyle if you need to remind yourself of the sad life you once lived.
+
+# UserStyle Examples
+
+## YouTube UI Refinements
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
-### Gmail Keyboard Shortcuts
+<p>
+<a href="./images/youtube_homepage.webp" ><img src="./images/youtube_homepage.webp" width=45%></a>
+<a href="./images/youtube_watch.webp" ><img src="./images/youtube_watch.webp" width=45%></a>
+<a href="./images/youtube_videowall.webp" ><img src="./images/youtube_videowall.webp" width=45%></a>
+</p>
+
+## Gmail Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>
 ![Gmail read mail view before and after][GmailKbdGif1]<br>
 ![Gmail inbox before and after][GmailKbdGif2]<br>
-### Google Messages Keyboard Shortcuts
+
+## Google Messages Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user-238b8b.svg)][RawMsgsKbd]<br>
-![Google Messages contact list before and after][MsgsKbdGif1]<br>
-![Google Messages text box before and after][MsgsKbdGif2]<br>
-### Google Sheets Usability Improvements
+![Google Messages contact list before and after][MsgsKbdGif1]
+![Google Messages text box before and after][MsgsKbdGif2]
+
+
+## Google Sheets Usability Improvements
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--sheets--straightedge.user.css-238b8b.svg)][RawSheets]<br>
 
-Alternatively, if you view any UserScript in GitHub and click the Raw button in the top right corner of the viewer, Stylus should recognize it and offer to install the script.
-## 3. Configure and enjoy
-The Stylus extension will show a gear icon for every installed style that has user customizations available. And you can always disable the entire UserStyle if you need to remind yourself of the sad life you once lived.
 # About
 These UserStyle scripts have not been tested on anything besides Chrome with the [Stylus extension][StylusChrome], and the particular websites as they exist today. Some of the scripts have been made user-configurable through Stylus using [@var declarations][StylusVar] in the `==UserStyle==` header, and the [LESS CSS preprocessor][LESS] is used for the [CSS Guards] feature to permit disabling of optional CSS selectors. Aside from that, the files are pure CSS and can be used on other platforms.
 
@@ -45,6 +61,9 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [RawMsgsKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-messages-kbd-shortcuts.user
 [RawSheets]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-sheets-straightedge.user
 
+[YtHome]: ./images/youtube_homepage.webp "YouTube homepage before and after"
+[YtWatch]: ./images/youtube_watch.webp "YouTube watch page before and after"
+[YtWall]: ./images/youtube_videowall.webp "YouTube video wall before and after"
 [GmailKbdGif1]: ./images/gmail_read_view.gif "Gmail read mail view before and after"
 [GmailKbdGif2]: ./images/gmail_inbox.gif "Gmail inbox before and after"
 [MsgsKbdGif1]: ./images/messages_contacts.gif "Google Messages contact list before and after"

@@ -22,9 +22,10 @@ The Stylus extension will show a **gear icon** for every installed style that ha
 
 ## YouTube UI Refinements
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
-![YouTube homepage before and after][YtHome]<br>
-![YouTube watch page before and after][YtWatch]<br>
-![YouTube video wall before and after][YtWall]<br>
+I can't seem to embed the YouTube screenshots and have them display on Github (images too large, maybe?), so I've linked to them instead:
+[YouTube homepage before/after][YtHome]<br>
+[YouTube watch page before/after][YtWatch]<br>
+[YouTube video wall before/after][YtWall]<br>
 
 ## Gmail Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>
@@ -59,9 +60,9 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [RawMsgsKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-messages-kbd-shortcuts.user
 [RawSheets]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-sheets-straightedge.user
 
-[YtHome]: ./images/youtube_homepage.webp "YouTube homepage before and after"
-[YtWatch]: ./images/youtube_watch.webp "YouTube watch page before and after"
-[YtWall]: ./images/youtube_videowall_tiny.webp "YouTube video wall before and after"
+[YtHome]: ./images/youtube_homepage.webp?raw=true "YouTube homepage before and after"
+[YtWatch]: ./images/youtube_watch.webp?raw=true "YouTube watch page before and after"
+[YtWall]: ./images/youtube_videowall_tiny_test.webp?raw=true "YouTube video wall before and after"
 [GmailKbdGif1]: ./images/gmail_read_view.gif "Gmail read mail view before and after"
 [GmailKbdGif2]: ./images/gmail_inbox.gif "Gmail inbox before and after"
 [MsgsKbdGif1]: ./images/messages_contacts.gif "Google Messages contact list before and after"

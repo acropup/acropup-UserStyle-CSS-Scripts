@@ -21,8 +21,10 @@ The Stylus extension will show a **gear icon** for every installed style that ha
 # UserStyle Examples
 
 ## YouTube UI Refinements
+
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
-I can't seem to embed the YouTube screenshots and have them display on Github (images too large, maybe?), so I've linked to them instead:
+I can't seem to embed these YouTube screenshots and have them display on Github (images too large, maybe?), so I've linked to them instead:
+
 [YouTube homepage before/after][YtHome]<br>
 [YouTube watch page before/after][YtWatch]<br>
 [YouTube video wall before/after][YtWall]<br>

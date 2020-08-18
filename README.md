@@ -64,7 +64,7 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 
 [YtHome]: ./images/youtube_homepage.webp?raw=true "YouTube homepage before and after"
 [YtWatch]: ./images/youtube_watch.webp?raw=true "YouTube watch page before and after"
-[YtWall]: ./images/youtube_videowall_tiny_test.webp?raw=true "YouTube video wall before and after"
+[YtWall]: ./images/youtube_videowall.webp?raw=true "YouTube video wall before and after"
 [GmailKbdGif1]: ./images/gmail_read_view.gif "Gmail read mail view before and after"
 [GmailKbdGif2]: ./images/gmail_inbox.gif "Gmail inbox before and after"
 [MsgsKbdGif1]: ./images/messages_contacts.gif "Google Messages contact list before and after"

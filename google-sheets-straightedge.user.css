@@ -1,35 +1,35 @@
 /* ==UserStyle==
 @name           Google Sheets - Active row/column visual aid
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.2
+@version        1.0.3
 @description    For any active cell or highlighted range in Google Sheets, the border is extended indefinitely in the form of dashed lines. This makes it easier to see which row/column you are on.
 @author         Shane Burgess
 ==/UserStyle== */
 /* Feature list:
     - Extends horizontal and vertical lines from the active cell to help your eye follow the current row.
+    - Smoothly animates movement of the active cell.
     - Creates space for more worksheet tabs along the bottom.
     - Adds a "Scroll left" arrow to the left end of the worksheet tabs.
 */
 @-moz-document url-prefix("https://docs.google.com/spreadsheets/d/") {
-
-  /* --- Active cell border --- */
   
+  /* --- Active cell border --- */
   .range-border.active-cell-border::before {
     content: '';
-    border: 1px dashed rgba(60, 180, 60, .5);
+    border: 2px dashed rgb(45 165 100);
     float: left;
     position: absolute;
     top: -9999em;
     bottom: -9999em;
     left: -9999em;
     right:-9999em;
+    transform: translateZ(-1px); /* Render behind .active-cell-border */
   }
-
   .range-border.active-cell-border:nth-child(1)::before /* top */ {
     top: -2px;
   }
   .range-border.active-cell-border:nth-child(2)::before /* bottom */ {
-    top: 0.75px;
+    top: 0px;
   }
   .range-border.active-cell-border:nth-child(3)::before /* right */ {
     left: 0px;
@@ -37,10 +37,15 @@
   .range-border.active-cell-border:nth-child(4)::before /* left */ {
     left: -2px;
   }
+  /* This 3D transform is a way to keep pseudo elements behind their parents */
+  .range-border.active-cell-border {
+    transform-style: preserve-3d;
+  }
 
-  
   /* --- Selected range borders --- */
   
+  /* pseudo elements inherit the opacity of their parent, so we need to 
+     move .selection's 0.1 opacity to its background-color */
   .selection {
     background-color: rgba(14, 101, 235, 0.1) !important;
     opacity: 1 !important;
@@ -49,7 +54,7 @@
   .selection::before, .selection::after {
     content: '';
     box-sizing: border-box;
-    border: 1px dashed rgba(60, 180, 60, .5);
+    border: 2px dashed rgb(45 165 100);;
     float: left;
     position: absolute;
   }
@@ -68,6 +73,12 @@
     left: -9999em;
     right:-9999em;
     height: calc(100% + 1px);;
+  }
+  
+  /* Smoothy move active cell highlighting */
+  /* This is probably too general a selector, but it's not clear how to make it more specific */
+  .uberlay > .overlay-container-ltr > div {
+    transition: top .2s ease 0s, left .2s ease 0s;
   }
   /* .range-border.selection-border might also be of use */
 
@@ -92,6 +103,11 @@
   /* Remove margin on left of bottom bar */
   #grid-bottom-bar > tbody > tr:last-child > td:first-child {
     display: none;
+  }
+  /* Read-only files have no Add Sheet button, but I still want to reserve space for it */
+  .docs-sheet-button.docs-sheet-add[aria-hidden=true] {
+    visibility: hidden;
+    display: unset !important;
   }
 
   /* Put a 'Move tabs left' arrow on the left side of the bottom bar */

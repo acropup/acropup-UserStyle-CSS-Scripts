@@ -22,7 +22,9 @@ The Stylus extension will show a **gear icon** for every installed style that ha
 
 ## YouTube UI Refinements
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
+
 I can't seem to embed the YouTube screenshots and have them display on Github (images too large, maybe?), so I've linked to them instead:
+
 [YouTube homepage before/after][YtHome]<br>
 [YouTube watch page before/after][YtWatch]<br>
 [YouTube video wall before/after][YtWall]<br>
@@ -34,12 +36,36 @@ I can't seem to embed the YouTube screenshots and have them display on Github (i
 
 ## Google Messages Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user-238b8b.svg)][RawMsgsKbd]<br>
+
+Adds Keyboard shortcuts for:
+- Start chat
+- Select previous/next chat
+- Focus on chat list
+- Focus on message text box
+- Focus on current chat body
+- Add emoji, sticker, gif, attachments
+
+Supports both Light Mode and Dark Mode.
+
 ![Google Messages contact list before and after][MsgsKbdGif1]
 ![Google Messages text box before and after][MsgsKbdGif2]
 
 
 ## Google Sheets Usability Improvements
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--sheets--straightedge.user.css-238b8b.svg)][RawSheets]<br>
+
+Worksheet view:
+- Adds a straightedge - horizontal and vertical dashed lines to help identify the row and column of the active cell.
+- Adds a smooth movement to the active cell border and dashed lines when moving between cells.
+
+![Google Sheets with straightedge][SheetsGif1]
+
+Improvements to the Google Sheets tab bar:
+- Adds a Scroll Left button to the left side of the tab bar.
+- Reduces unnecessary horizontal spacing along bottom bar.
+- Hides "Explore" button text.
+
+![Google Sheets tab row improvements][SheetsGif2]
 
 # About
 These UserStyle scripts have not been tested on anything besides Chrome with the [Stylus extension][StylusChrome], and the particular websites as they exist today. Some of the scripts have been made user-configurable through Stylus using [@var declarations][StylusVar] in the `==UserStyle==` header, and the [LESS CSS preprocessor][LESS] is used for the [CSS Guards] feature to permit disabling of optional CSS selectors. Aside from that, the files are pure CSS and can be used on other platforms.

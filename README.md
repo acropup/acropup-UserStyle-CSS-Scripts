@@ -35,7 +35,7 @@ I can't seem to embed these YouTube screenshots and have them display on Github 
 ![Gmail inbox before and after][GmailKbdGif2]<br>
 
 ## Google Messages Keyboard Shortcuts
-[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user-238b8b.svg)][RawMsgsKbd]<br>
+[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user.css-238b8b.svg)][RawMsgsKbd]<br>
 
 Adds Keyboard shortcuts for:
 - Start chat
@@ -83,8 +83,8 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 
 [RawYoutube]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/youtube.user.css
 [RawGmailKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/gmail-kbd-shortcuts.user.css
-[RawMsgsKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-messages-kbd-shortcuts.user
-[RawSheets]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-sheets-straightedge.user
+[RawMsgsKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-messages-kbd-shortcuts.user.css
+[RawSheets]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-sheets-straightedge.user.css
 
 [YtHome]: ./images/youtube_homepage.webp?raw=true "YouTube homepage before and after"
 [YtWatch]: ./images/youtube_watch.webp?raw=true "YouTube watch page before and after"

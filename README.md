@@ -23,11 +23,31 @@ The Stylus extension will show a **gear icon** for every installed style that ha
 ## YouTube UI Refinements
 
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
-I can't seem to embed these YouTube screenshots and have them display on Github (images too large, maybe?), so I've linked to them instead:
 
-[YouTube homepage before/after][YtHome]<br>
-[YouTube watch page before/after][YtWatch]<br>
-[YouTube video wall before/after][YtWall]<br>
+Improves the visibility and style of elements throughout YouTube:
+- Many features are customizable through the Stylish Configuration (Gear) menu
+- Reduces needless whitespace, allowing up to 4 lines of title text within the same area
+- Colour the YouTube logo as a visual indicator that this UserStyle script is enabled (optional)
+- Hide Playlists from search results and recommendations
+
+[![YouTube homepage before/after][YtHomeSmall]][YtHome]<br>
+
+- Improves visibility of "Show more" and "Read more" buttons
+- Shows more of the video description by default (optional)
+- The sentiment bar (showing likes vs dislikes) is made more eye-catching
+- Bottom gradient over video isn't as obtrusive when the progress bar appears
+- Removes the "More videos" popup over paused videos
+- Captions don't move (and further obscure the video) when the progress bar appears
+- Hide overlays on video preview thumbnails
+
+[![YouTube watch page before/after][YtWatchSmall]][YtWatch]<br>
+
+- The end-of-video "video wall" now shows all video titles by default (optional)
+- Reduces visibility of video overlays, such as links to uploader's channel, videos, and playlists (optional)
+
+[![YouTube video wall before/after][YtWallSmall]][YtWall]<br>
+
+- And many more... check the comments at the top of [youtube.user.css][RawYoutube] for a complete list of features.
 
 ## Gmail Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>
@@ -89,6 +109,9 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [YtHome]: ./images/youtube_homepage.webp?raw=true "YouTube homepage before and after"
 [YtWatch]: ./images/youtube_watch.webp?raw=true "YouTube watch page before and after"
 [YtWall]: ./images/youtube_videowall.webp?raw=true "YouTube video wall before and after"
+[YtHomeSmall]: ./images/youtube_homepage_small.webp?raw=true "YouTube homepage before and after"
+[YtWatchSmall]: ./images/youtube_watch_small.webp?raw=true "YouTube watch page before and after"
+[YtWallSmall]: ./images/youtube_videowall_small.webp?raw=true "YouTube video wall before and after"
 [GmailKbdGif1]: ./images/gmail_read_view.gif "Gmail read mail view before and after"
 [GmailKbdGif2]: ./images/gmail_inbox.gif "Gmail inbox before and after"
 [MsgsKbdGif1]: ./images/messages_contacts.gif "Google Messages contact list before and after"

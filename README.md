@@ -26,11 +26,12 @@ The Stylus extension will show a **gear icon** for every installed style that ha
 
 Improves the visibility and style of elements throughout YouTube:
 - Many features are customizable through the Stylish Configuration (Gear) menu
+- Supports both Light Mode and Dark Mode
 - Reduces needless whitespace, allowing up to 4 lines of title text within the same area
 - Colour the YouTube logo as a visual indicator that this UserStyle script is enabled (optional)
 - Hide Playlists from search results and recommendations
 
-[![YouTube homepage before/after][YtHomeSmall]][YtHome]<br>
+[![YtHomeSmall]][YtHome]<br>
 
 - Improves visibility of "Show more" and "Read more" buttons
 - Shows more of the video description by default (optional)
@@ -40,19 +41,19 @@ Improves the visibility and style of elements throughout YouTube:
 - Captions don't move (and further obscure the video) when the progress bar appears
 - Hide overlays on video preview thumbnails
 
-[![YouTube watch page before/after][YtWatchSmall]][YtWatch]<br>
+[![YtWatchSmall]][YtWatch]<br>
 
 - The end-of-video "video wall" now shows all video titles by default (optional)
 - Reduces visibility of video overlays, such as links to uploader's channel, videos, and playlists (optional)
 
-[![YouTube video wall before/after][YtWallSmall]][YtWall]<br>
+[![YtWallSmall]][YtWall]<br>
 
 - And many more... check the comments at the top of [youtube.user.css][RawYoutube] for a complete list of features.
 
 ## Gmail Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>
-![Gmail read mail view before and after][GmailKbdGif1]<br>
-![Gmail inbox before and after][GmailKbdGif2]<br>
+![GmailKbdGif1]<br>
+![GmailKbdGif2]<br>
 
 ## Google Messages Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user.css-238b8b.svg)][RawMsgsKbd]<br>
@@ -67,8 +68,8 @@ Adds Keyboard shortcuts for:
 
 Supports both Light Mode and Dark Mode.
 
-![Google Messages contact list before and after][MsgsKbdGif1]
-![Google Messages text box before and after][MsgsKbdGif2]
+![MsgsKbdGif1]
+![MsgsKbdGif2]
 
 
 ## Google Sheets Usability Improvements
@@ -78,14 +79,14 @@ Worksheet view:
 - Adds a straightedge - horizontal and vertical dashed lines to help identify the row and column of the active cell.
 - Adds a smooth movement to the active cell border and dashed lines when moving between cells.
 
-![Google Sheets with straightedge][SheetsGif1]
+![SheetsGif1]
 
 Improvements to the Google Sheets tab bar:
 - Adds a Scroll Left button to the left side of the tab bar.
 - Reduces unnecessary horizontal spacing along bottom bar.
 - Hides "Explore" button text.
 
-![Google Sheets tab row improvements][SheetsGif2]
+![SheetsGif2]
 
 # About
 These UserStyle scripts have not been tested on anything besides Chrome with the [Stylus extension][StylusChrome], and the particular websites as they exist today. Some of the scripts have been made user-configurable through Stylus using [@var declarations][StylusVar] in the `==UserStyle==` header, and the [LESS CSS preprocessor][LESS] is used for the [CSS Guards] feature to permit disabling of optional CSS selectors. Aside from that, the files are pure CSS and can be used on other platforms.

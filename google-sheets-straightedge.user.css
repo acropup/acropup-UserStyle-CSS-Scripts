@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Google Sheets - Active row/column visual aid
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.3
+@version        1.0.4
 @description    For any active cell or highlighted range in Google Sheets, the border is extended indefinitely in the form of dashed lines. This makes it easier to see which row/column you are on.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -37,10 +37,6 @@
   .range-border.active-cell-border:nth-child(4)::before /* left */ {
     left: -2px;
   }
-  /* This 3D transform is a way to keep pseudo elements behind their parents */
-  .range-border.active-cell-border {
-    transform-style: preserve-3d;
-  }
 
   /* --- Selected range borders --- */
   
@@ -75,10 +71,15 @@
     height: calc(100% + 1px);;
   }
   
-  /* Smoothy move active cell highlighting */
+  /* Smoothly move active cell highlighting */
   /* This is probably too general a selector, but it's not clear how to make it more specific */
   .uberlay > .overlay-container-ltr > div {
     transition: top .2s ease 0s, left .2s ease 0s;
+  }
+  .range-border.active-cell-border {
+    transition: width .2s ease 0s, top .2s ease 0s, left .2s ease 0s;
+    /* This 3D transform is a way to keep pseudo elements behind their parents */
+    transform-style: preserve-3d;
   }
   /* .range-border.selection-border might also be of use */
 

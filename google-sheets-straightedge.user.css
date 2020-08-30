@@ -1,6 +1,7 @@
 /* ==UserStyle==
 @name           Google Sheets - Active row/column visual aid
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
 @version        1.0.4
 @description    For any active cell or highlighted range in Google Sheets, the border is extended indefinitely in the form of dashed lines. This makes it easier to see which row/column you are on.
 @author         Shane Burgess

@@ -24,19 +24,17 @@ The Stylus extension will show a **gear icon** for every installed style that ha
 
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-youtube.user.css-238b8b.svg)][RawYoutube]<br>
 
-Improves the visibility and style of elements throughout YouTube:
-- Many features are customizable through the Stylish Configuration (Gear) menu
-- Supports both Light Mode and Dark Mode
+This script improves the visibility and style of elements throughout YouTube. Click any of the images to view them full size.
 - Reduces needless whitespace, allowing up to 4 lines of title text within the same area
-- Colour the YouTube logo as a visual indicator that this UserStyle script is enabled (optional)
-- Hide Playlists from search results and recommendations
+- Colours the YouTube logo as a visual indicator that this UserStyle script is enabled (optional)
+- Hides Playlists from search results and recommendations
 
 [![YtHomeSmall]][YtHome]<br>
 
 - Improves visibility of "Show more" and "Read more" buttons
 - Shows more of the video description by default (optional)
 - The sentiment bar (showing likes vs dislikes) is made more eye-catching
-- Bottom gradient over video isn't as obtrusive when the progress bar appears
+- Bottom gradient over video isn't so obtrusive when the progress bar appears
 - Removes the "More videos" popup over paused videos
 - Captions don't move (and further obscure the video) when the progress bar appears
 - Hide overlays on video preview thumbnails
@@ -48,6 +46,8 @@ Improves the visibility and style of elements throughout YouTube:
 
 [![YtWallSmall]][YtWall]<br>
 
+- Many features are customizable through the Stylish Configuration (Gear) menu
+- Supports both Light Mode and Dark Mode
 - And many more... check the comments at the top of [youtube.user.css][RawYoutube] for a complete list of features.
 
 ## Gmail Keyboard Shortcuts
@@ -83,7 +83,7 @@ Worksheet view:
 
 Improvements to the Google Sheets tab bar:
 - Adds a Scroll Left button to the left side of the tab bar.
-- Reduces unnecessary horizontal spacing along bottom bar.
+- Reduces unnecessary horizontal padding along bottom bar.
 - Hides "Explore" button text.
 
 ![SheetsGif2]
@@ -91,7 +91,7 @@ Improvements to the Google Sheets tab bar:
 # About
 These UserStyle scripts have not been tested on anything besides Chrome with the [Stylus extension][StylusChrome], and the particular websites as they exist today. Some of the scripts have been made user-configurable through Stylus using [@var declarations][StylusVar] in the `==UserStyle==` header, and the [LESS CSS preprocessor][LESS] is used for the [CSS Guards] feature to permit disabling of optional CSS selectors. Aside from that, the files are pure CSS and can be used on other platforms.
 
-*Note: I previously made [custom AdBlock filters][1] for a similar purpose, except that they run on the [uBlock Origin] extension. [Stylus] has proven valuable enough that it is now a full-time extension of mine, so I no longer need to use/abuse uBlock Origin in that way.*
+*Note: I previously made [custom AdBlock filters] for a similar purpose, except that they run on the [uBlock Origin] extension. [Stylus] has proven valuable enough that it is now a full-time extension of mine, so I no longer need to use/abuse uBlock Origin in that way.*
 
 [Stylus]: https://add0n.com/stylus.html
 [StylusChrome]: https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne
@@ -107,12 +107,12 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [RawMsgsKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-messages-kbd-shortcuts.user.css
 [RawSheets]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-sheets-straightedge.user.css
 
-[YtHome]: ./images/youtube_homepage.webp?raw=true "YouTube homepage before and after"
-[YtWatch]: ./images/youtube_watch.webp?raw=true "YouTube watch page before and after"
-[YtWall]: ./images/youtube_videowall.webp?raw=true "YouTube video wall before and after"
-[YtHomeSmall]: ./images/youtube_homepage_small.gif "YouTube homepage before and after"
-[YtWatchSmall]: ./images/youtube_watch_small.gif "YouTube watch page before and after"
-[YtWallSmall]: ./images/youtube_videowall_small.gif "YouTube video wall before and after"
+[YtHome]: ./images/yt_homepage.webp?raw=true "YouTube homepage before and after"
+[YtWatch]: ./images/yt_watch.webp?raw=true "YouTube watch page before and after"
+[YtWall]: ./images/yt_videowall.webp?raw=true "YouTube video wall before and after"
+[YtHomeSmall]: ./images/yt_homepage_small.gif "YouTube homepage before and after"
+[YtWatchSmall]: ./images/yt_watch_small.gif "YouTube watch page before and after"
+[YtWallSmall]: ./images/yt_videowall_small.gif "YouTube video wall before and after"
 [GmailKbdGif1]: ./images/gmail_read_view.gif "Gmail read mail view before and after"
 [GmailKbdGif2]: ./images/gmail_inbox.gif "Gmail inbox before and after"
 [MsgsKbdGif1]: ./images/messages_contacts.gif "Google Messages contact list before and after"
@@ -120,5 +120,5 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [SheetsGif1]: ./images/sheets_straightedge.gif "Google Sheets straightedge for active selection"
 [SheetsGif2]: ./images/sheets_tab_row.gif "Google Sheets tab row improvements"
 
-[1]: https://github.com/acropup/acropup-AdBlock-Filters
+[custom AdBlock filters]: https://github.com/acropup/acropup-AdBlock-Filters
 [uBlock Origin]: https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm

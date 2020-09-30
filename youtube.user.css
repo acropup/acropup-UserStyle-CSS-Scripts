@@ -2,7 +2,7 @@
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.10
+@version        1.1.0
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -48,33 +48,39 @@ ytd-grid-video-renderer.ytd-grid-renderer {
 }
 
 /* Reduce vertical margin on video titles */
-h3.ytd-rich-grid-video-renderer,
-h3.ytd-grid-video-renderer {
+#meta > h3.ytd-rich-grid-video-renderer,
+#meta > h3.ytd-grid-video-renderer,
+#meta > h3.ytd-rich-grid-media {
     margin: 2px 0;
 }
 /* Let content overlap with ellipsis menu column */
 #meta.ytd-rich-grid-video-renderer,
-#meta.ytd-grid-video-renderer {
+#meta.ytd-grid-video-renderer,
+#meta.ytd-rich-grid-media {
     padding-right: 0px;
 }
 /* Move vertical ellipsis menu button to bottom right corner */
-#menu > ytd-menu-renderer.ytd-rich-grid-video-renderer {
+#menu > ytd-menu-renderer.ytd-rich-grid-video-renderer,
+#menu > ytd-menu-renderer.ytd-rich-grid-media {
     top: unset;
     bottom: 2px;
 }
-#menu > ytd-menu-renderer.ytd-grid-video-renderer {
+#menu > ytd-menu-renderer.ytd-grid-video-renderer,
+#menu > ytd-menu-renderer.ytd-rich-grid-media {
     top: unset;
     bottom: -3px;
 }
     
 /* Channel name and view count, bottom left */
-ytd-video-meta-block.grid.ytd-rich-grid-video-renderer {
+ytd-video-meta-block.grid.ytd-rich-grid-video-renderer,
+ytd-video-meta-block.grid.ytd-rich-grid-media {
     position: absolute;
     left: 42px;
     width: 100%;
     bottom: 0;
 }
-#metadata-container.grid.ytd-grid-video-renderer {
+#metadata-container.grid.ytd-grid-video-renderer,
+#metadata-container.grid.ytd-grid-media {
     position: absolute;
     bottom: 0;
 }
@@ -86,7 +92,8 @@ a#avatar-link {
 }
 
 /* Set height of video's text info */
-ytd-rich-grid-video-renderer div#details {
+ytd-rich-grid-video-renderer div#details,
+ytd-rich-grid-media div#details {
     height: calc((@TitleLines * 1.8rem) + 3.8rem);
 }
 ytd-grid-video-renderer div#details {
@@ -95,7 +102,9 @@ ytd-grid-video-renderer div#details {
 /* Show up to 4 lines of title text before truncating with ellipsis */
 /* removed class .yt-simple-endpoint */
 #video-title.style-scope.ytd-rich-grid-video-renderer,
-ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
+ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer,
+#video-title.style-scope.ytd-rich-grid-media,
+ytd-rich-grid-media #video-title.style-scope.ytd-rich-grid-media {
     font-size: 1.4rem !important;
     line-height: 1.8rem !important;
     max-height: calc(@TitleLines * $line-height) !important;
@@ -111,7 +120,8 @@ ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer {
 }
 
 /* Move badges below title and add background */
-ytd-badge-supported-renderer.ytd-rich-grid-video-renderer {
+ytd-badge-supported-renderer.ytd-rich-grid-video-renderer,
+ytd-badge-supported-renderer.ytd-rich-grid-media {
     position: absolute;
     bottom: 35px;
     right: 0px;
@@ -139,8 +149,10 @@ ytd-badge-supported-renderer .badge.badge-style-type-live-now.ytd-badge-supporte
     display: none;
 }
 /* Fade out thumbnail time status more quickly */
-ytd-rich-grid-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail, 
-ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail {
+ytd-rich-grid-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail,
+ytd-grid-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail, 
+ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail,
+ytd-rich-grid-media:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail {
     transition: opacity 0.15s;
     opacity: 0;
 }

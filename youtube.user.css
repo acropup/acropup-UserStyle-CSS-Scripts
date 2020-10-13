@@ -2,7 +2,7 @@
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.1.0
+@version        1.1.1
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -121,7 +121,8 @@ ytd-rich-grid-media #video-title.style-scope.ytd-rich-grid-media {
 
 /* Move badges below title and add background */
 ytd-badge-supported-renderer.ytd-rich-grid-video-renderer,
-ytd-badge-supported-renderer.ytd-rich-grid-media {
+ytd-badge-supported-renderer.ytd-rich-grid-media,
+ytd-badge-supported-renderer + #buttons { /* #buttons is for SET REMINDER button */
     position: absolute;
     bottom: 35px;
     right: 0px;

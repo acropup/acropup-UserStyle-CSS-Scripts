@@ -2,7 +2,7 @@
 @name           Google Sheets - Active row/column visual aid
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.4
+@version        1.0.5
 @description    For any active cell or highlighted range in Google Sheets, the border is extended indefinitely in the form of dashed lines. This makes it easier to see which row/column you are on.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -25,6 +25,7 @@
     left: -9999em;
     right:-9999em;
     transform: translateZ(-1px); /* Render behind .active-cell-border */
+    pointer-events: none;
   }
   .range-border.active-cell-border:nth-child(1)::before /* top */ {
     top: -2px;

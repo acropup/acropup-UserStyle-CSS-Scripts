@@ -2,14 +2,14 @@
 @name           Gmail Keyboard Shortcut Tooltips
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.3
+@version        1.0.4
 @description    Within Gmail, display Gmail's default keyboard shortcuts for most commands next to their buttons. ⇧ symbol denotes the Shift key.
 @preprocessor   less
 @author         Shane Burgess
 ==/UserStyle== */
 
 /* Within Gmail, while no textbox is selected, type a question mark to get a shortcut list,
-   or go to https://support.google.com/mail/answer/6594?hl=en-GB 
+   or go to https://support.google.com/mail/answer/6594
    This style assumes you are using the default keyboard shortcuts.
    If you have customized them, you'll have to customize this script to match (it's not difficult).
    In this style, the upwards arrow symbol used is ⇧, a Unicode symbol called the Upwards Thick Arrow (U+21e7).
@@ -122,6 +122,10 @@
         left: 131px;
         width: calc(.8 * var(--kbd-tooltip-width));
         height: calc(.8 * var(--kbd-tooltip-height));
+    }
+    .aeN.bhZ .T-I-KE::after { /*Compose new email, when left pane is collapsed*/ 
+        top: 28px;
+        left: 40px;
     }
     .aND.pp.aj3::before { /*Hangouts contacts list*/
         content: 'hc';

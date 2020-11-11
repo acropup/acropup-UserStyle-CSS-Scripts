@@ -52,13 +52,22 @@ This script improves the visibility and style of elements throughout YouTube. Cl
 
 ## Gmail Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--kbd--shortcuts.user.css-238b8b.svg)][RawGmailKbd]<br>
+
+Adds Keyboard shortcut reminders to Gmail, helping you to navigate without the mouse and work more efficiently. These keyboard shortcuts have always existed in Gmail, but adding reminders to the interface makes it easier to learn and use them.
+
+Many of these keyboard shortcuts are considered 'advanced' and **must first be enabled** through Gmail Settings. To view and enable all shortcuts in Gmail, type a '?' into nothing (with no textbox selected), or [follow these directions](https://support.google.com/mail/answer/6594).
+
 ![GmailKbdGif1]<br>
 ![GmailKbdGif2]<br>
+
+This UserScript assumes that you are using Gmail's default keyboard shortcuts. If you have opted for custom keyboard shortcuts, you'll have to edit this CSS file yourself to match the shortcuts you have chosen (don't worry, it's not difficult). This is also styled to work best with Gmail's default visual theme, and has not been tested alongside other themes.
+
+I chose not to add shortcut reminders to the Compose email window, because this is one place in Gmail where you can hover over most buttons to see a tooltip with its keyboard shortcut.
 
 ## Google Messages Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user.css-238b8b.svg)][RawMsgsKbd]<br>
 
-Adds Keyboard shortcuts for:
+Adds Keyboard shortcut reminders for:
 - Start chat
 - Select previous/next chat
 - Focus on chat list

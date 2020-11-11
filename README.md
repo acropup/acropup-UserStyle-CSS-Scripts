@@ -47,6 +47,9 @@ This script improves the visibility and style of elements throughout YouTube. Cl
 [![YtWallSmall]][YtWall]<br>
 
 - Many features are customizable through the Stylish Configuration (Gear) menu
+
+[![YtStyleSettings][YtStyleSettings]]
+
 - Supports both Light Mode and Dark Mode
 - And many more... check the comments at the top of [youtube.user.css][RawYoutube] for a complete list of features.
 
@@ -119,6 +122,7 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [YtHome]: ./images/yt_homepage.webp?raw=true "YouTube homepage before and after"
 [YtWatch]: ./images/yt_watch.webp?raw=true "YouTube watch page before and after"
 [YtWall]: ./images/yt_videowall.webp?raw=true "YouTube video wall before and after"
+[YtStyleSettings]: ./images/yt_userstyle_settings.png "YouTube Refined user settings"
 [YtHomeSmall]: ./images/yt_homepage_small.gif "YouTube homepage before and after"
 [YtWatchSmall]: ./images/yt_watch_small.gif "YouTube watch page before and after"
 [YtWallSmall]: ./images/yt_videowall_small.gif "YouTube video wall before and after"

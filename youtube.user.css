@@ -2,7 +2,7 @@
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.1.1
+@version        1.1.2
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -10,6 +10,7 @@
 @var range    TitleLines "Title lines shown on homepage" [3, 0, 4, 1]
 @var checkbox HidePlaylists "Playlists hidden from search results and recommendations" 1
 @var checkbox CCToBottom "Captions stay at bottom of video" 1
+@var checkbox HidePrevNextButtons "Hide Previous/Next buttons next to Play/Pause button" 1
 @var checkbox ShowVideoWallTitles "Show all video titles on video wall (after video ends)" 1
 @var checkbox AdDismissBtn "Ad dismiss buttons made larger" 1
 @var number   DescLinesShown "Unexpanded description size" [12, 0, 100, 1]
@@ -28,6 +29,7 @@
   - Removes the "More videos" popup over paused videos.
   - Captions don't move (and further obscure the video) when the progress bar appears. [Optional]
   - Bottom gradient isn't as obtrusive when the progress bar appears.
+  - Hides the Previous/Next buttons that are next to the Play/Pause button. [Optional]
   - Increases the size of dismiss buttons for in-video ads. [Optional]
   - Shows more of the video description by default. [Optional]
   - SHOW MORE/SHOW LESS and Read more/Show less buttons are made more visible.
@@ -343,6 +345,13 @@ span.ytp-videowall-still-info-title {
 .ytp-big-mode .ytp-gradient-bottom {
     height: 70px !important;               
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEmCAYAAACjy/qzAAAAhklEQVQ4y52RUQ6AMAxCKd7/JJ7R6aeJAdr507TjQZqOAE4CWARwx7JE944rch/k6qOWS7bq5bh72zGF8+LTa6goJeRPgXDYNxWFfkS0QXCInLIN1GxTXA0dtS0otWJnuXJR1Y9WYP9GF1UCYRQYHRSlXMARbVO4th3sd7Y3OP5dY3Bn+SkPsGJ1+HGGVtcAAAAASUVORK5CYII=) !important;
+}
+
+& when (@HidePrevNextButtons = 1) {
+.ytp-chrome-controls .ytp-prev-button,
+.ytp-chrome-controls .ytp-next-button {
+    display: none;
+  }
 }
 
 & when (@AdDismissBtn = 1) {

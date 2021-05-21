@@ -170,21 +170,21 @@ ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
 }
 }
 & when (@ColourLogo = 1) {
-    #logo-icon > svg > g > g:nth-child(1) > path { /* youtube logo squircle */
+    #logo-icon > svg > g > g:nth-child(1) > path:nth-child(1) { /* youtube logo squircle */
         fill: #F12711;
     }
-    #logo-icon > svg > g > g:nth-child(1) > polygon { /* youtube logo play triangle */
+    #logo-icon > svg > g > g:nth-child(1) > path:nth-child(2) { /* youtube logo play triangle */
         fill: #FA3;
     }
     /* Y o u T u b e */
 /* https://meyerweb.com/eric/tools/color-blend/ */
-#logo-icon #youtube-paths > path:nth-child(3) { fill: #F12711 !important; }
-#logo-icon #youtube-paths > path:nth-child(1) { fill: #F23E12 !important; }
-#logo-icon #youtube-paths > path:nth-child(4) { fill: #F25414 !important; }
-#logo-icon #youtube-paths > path:nth-child(6) { fill: #F36B15 !important; }
+#logo-icon #youtube-paths > path:nth-child(1) { fill: #F12711 !important; }
+#logo-icon #youtube-paths > path:nth-child(2) { fill: #F23E12 !important; }
+#logo-icon #youtube-paths > path:nth-child(3) { fill: #F25414 !important; }
+#logo-icon #youtube-paths > path:nth-child(4) { fill: #F36B15 !important; }
 #logo-icon #youtube-paths > path:nth-child(5) { fill: #F48216 !important; }
-#logo-icon #youtube-paths > path:nth-child(7) { fill: #F49818 !important; }
-#logo-icon #youtube-paths > path:nth-child(2) { fill: #F5AF19 !important; }
+#logo-icon #youtube-paths > path:nth-child(6) { fill: #F49818 !important; }
+#logo-icon #youtube-paths > path:nth-child(7) { fill: #F5AF19 !important; }
 
 /* Hamburger Menu Icon - can't colour the SVG with only CSS so I'm redoing the shape as a clip-path */
 #guide-icon {

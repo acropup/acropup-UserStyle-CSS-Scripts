@@ -77,6 +77,9 @@ Adds Keyboard shortcut reminders for:
 - Focus on message text box
 - Focus on current chat body
 - Add emoji, sticker, gif, attachments
+- View Settings menu
+- View conversation details
+- Delete or Archive conversation
 
 Supports both Light Mode and Dark Mode.
 

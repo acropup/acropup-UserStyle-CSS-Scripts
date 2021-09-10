@@ -2,7 +2,7 @@
 @name           Keyboard shortcut tooltips for messages.google.com
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.2
+@version        1.1.0
 @description    Within Google Messages for web (messages.google.com), display the most useful keyboard shortcuts next to their buttons.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -28,7 +28,12 @@
     .bottom-anchored-content > .content:not(:focus-within)::before,
     button[data-e2e-picker-button]:first-child::before,
     button[data-e2e-picker-button]::after,
-    mw-fab-link.start-chat::before {
+    mw-fab-link.start-chat::before,
+    button[data-e2e-details-button]::before,
+    button[data-e2e-archive-button]::before,
+    button[data-e2e-delete-button]::before,
+    button[data-e2e-main-nav-menu="SETTINGS"]::before
+    {
         position: absolute;
         font-family: monospace;
         font-size: 13px;
@@ -58,14 +63,14 @@
     
     /* Focus on conversation list */
     mw-main-nav > div.main-nav-header::before {
-        content: 'Ctrl+Alt+Y';
+        content: 'Ctrl+Shift+K';
         top: 130px;
         right: 10px;
     }
     
     /* Focus on message textbox */
     mws-autosize-textarea.input:not(:focus-within)::before {
-        content: 'Ctrl+Alt+I';
+        content: 'R';
         top: -13px;
     }
     
@@ -75,7 +80,7 @@
         transform: unset !important;
     }
     .bottom-anchored-content > .content:not(:focus-within)::before {
-        content: 'Ctrl+Alt+U';
+        content: 'Ctrl+J';
         position: fixed;
         top: 76px;
         left: 8px;
@@ -89,7 +94,7 @@
         right: 8px;
     }
     button[data-e2e-picker-button]:first-child::before {
-        content: 'Ctrl+Alt';
+        content: 'Ctrl+Shift';
         right: 32px;
     }
     button[data-e2e-picker-button="EMOJI"]::after      { content: '+E'; }
@@ -102,8 +107,29 @@
         position: relative;
     }
     mw-fab-link.start-chat::before {
-        content: 'Ctrl+Alt+C';
+        content: 'Ctrl+K';
         top: -19px;
-        left: 26px;
+        left: 40px;
+    }
+  
+    button[data-e2e-details-button]::before {
+        content: 'Ctrl+Shift+O';
+        left: 24px;
+        bottom: 0px;
+    }
+    button[data-e2e-archive-button]::before {
+        content: 'Ctrl+Alt+H';
+        left: 24px;
+        bottom: 0px;
+    }
+    button[data-e2e-delete-button]::before {
+        content: 'Ctrl+D';
+        left: 24px;
+        bottom: 0px;
+    }
+    button[data-e2e-main-nav-menu="SETTINGS"]::before {
+        content: 'Ctrl+S';
+        left: 24px;
+        bottom: 0px;
     }
 }

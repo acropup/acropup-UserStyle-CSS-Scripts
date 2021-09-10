@@ -164,6 +164,7 @@ ytd-rich-grid-media:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbna
 /* Hide all suggested playlists because I almost never want to see them */
 ytd-compact-radio-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
 ytd-compact-playlist-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
+ytd-compact-radio-renderer.ytd-item-section-renderer.use-ellipsis, /* video page Mix */
 ytd-radio-renderer.ytd-item-section-renderer,   /* search results */
 ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
     display: none;

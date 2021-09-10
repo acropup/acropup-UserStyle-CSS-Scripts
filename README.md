@@ -85,6 +85,7 @@ Supports both Light Mode and Dark Mode.
 
 ![MsgsKbdGif1]
 ![MsgsKbdGif2]
+*Note: Some of the shortcuts have changed since these screenshots were taken. The script is up to date, but these screenshots are not.*
 
 
 ## Google Sheets Usability Improvements

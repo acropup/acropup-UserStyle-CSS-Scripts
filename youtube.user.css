@@ -2,13 +2,14 @@
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.2.1
+@version        1.3.0
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
 
 @var range    TitleLines "Title lines shown on homepage" [3, 0, 4, 1]
 @var checkbox HidePlaylists "Playlists hidden from search results and recommendations" 1
+@var checkbox HideShorts "YouTube Shorts links and suggestions removed entirely" 1
 @var checkbox CCToBottom "Captions stay at bottom of video" 1
 @var checkbox HidePrevNextButtons "Hide Previous/Next buttons next to Play/Pause button" 1
 @var checkbox ShowVideoWallTitles "Show all video titles on video wall (after video ends)" 1
@@ -34,6 +35,7 @@
   - Shows more of the video description by default. [Optional]
   - SHOW MORE/SHOW LESS and Read more/Show less buttons are made more visible.
   - Hides playlists from search results and recommendations. [Optional]
+  - Hides YouTube Shorts links and suggestions. [Optional]
   - Reduces visibility of video overlays, such as links to uploader's channel, videos, and playlists. [Optional]
   - Colour the YouTube logo as a visual indicator that this UserStyle script is enabled. [Optional]
 */
@@ -72,7 +74,7 @@ ytd-grid-video-renderer.ytd-grid-renderer {
     top: unset;
     bottom: -3px;
 }
-    
+
 /* Channel name and view count, bottom left */
 ytd-video-meta-block.grid.ytd-rich-grid-video-renderer,
 ytd-video-meta-block.grid.ytd-rich-grid-media {
@@ -170,22 +172,40 @@ ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
     display: none;
 }
 }
+
+/* Hide YouTube Shorts and Featured banners */
+& when (@HideShorts = 1) {
+  ytd-rich-section-renderer:has(ytd-statement-banner-renderer) {
+    background-color: purple;    
+  }
+
+  ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),          /* main homepage */
+  #guide-inner-content ytd-guide-entry-renderer:has(a[title="Shorts"]),       /* expanded navigation bar */
+  ytd-mini-guide-renderer ytd-mini-guide-entry-renderer[aria-label="Shorts"], /* minimized navigation bar */
+  ytd-video-renderer:has( a[href^="/shorts/"]),                               /* search results */
+  ytd-reel-shelf-renderer:has(#items a[href^="/shorts/"]),                    /* channel Home page */ 
+  #items.ytd-grid-renderer > ytd-grid-video-renderer:has(a[href^="/shorts/"]),/* channel Videos page */
+  ytd-item-section-renderer:has(ytd-shelf-renderer yt-horizontal-list-renderer #items a[href^="/shorts/"]) /* Explore feed */ {
+    display: none;
+  }
+}
+    
 & when (@ColourLogo = 1) {
-    #logo-icon > svg > g > g:nth-child(1) > path:nth-child(1) { /* youtube logo squircle */
+    #logo-icon svg > g:nth-child(1) > path:nth-child(1) { /* youtube logo squircle */
         fill: #F12711;
     }
-    #logo-icon > svg > g > g:nth-child(1) > path:nth-child(2) { /* youtube logo play triangle */
+    #logo-icon svg > g:nth-child(1) >  path:nth-child(2) { /* youtube logo play triangle */
         fill: #FA3;
     }
     /* Y o u T u b e */
 /* https://meyerweb.com/eric/tools/color-blend/ */
-#logo-icon #youtube-paths > path:nth-child(1) { fill: #F12711 !important; }
-#logo-icon #youtube-paths > path:nth-child(2) { fill: #F23E12 !important; }
-#logo-icon #youtube-paths > path:nth-child(3) { fill: #F25414 !important; }
-#logo-icon #youtube-paths > path:nth-child(4) { fill: #F36B15 !important; }
-#logo-icon #youtube-paths > path:nth-child(5) { fill: #F48216 !important; }
-#logo-icon #youtube-paths > path:nth-child(6) { fill: #F49818 !important; }
-#logo-icon #youtube-paths > path:nth-child(7) { fill: #F5AF19 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(1) { fill: #F12711 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(2) { fill: #F23E12 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(3) { fill: #F25414 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(4) { fill: #F36B15 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(5) { fill: #F48216 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(6) { fill: #F49818 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(7) { fill: #F5AF19 !important; }
 
 /* Hamburger Menu Icon - can't colour the SVG with only CSS so I'm redoing the shape as a clip-path */
 #guide-icon {

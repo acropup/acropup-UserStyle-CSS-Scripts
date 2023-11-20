@@ -1,0 +1,56 @@
+/* ==UserStyle==
+@name           Gmail - Tidy Compose Command Bar
+@namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.0.0
+@description    Within Gmail Compose window, hides unnecessary Compose commands, and puts the entire 
+                text formatting command bar in line with the Send button, rather than leaving it
+                floating overtop of the bottom of the email.
+@author         Shane Burgess
+==/UserStyle== */
+
+@-moz-document domain("mail.google.com") {
+  /* These are all unneeded */
+  .aZ .J-Z-I[command="+undo"],
+  .aZ .J-Z-I[command="+redo"],
+  .aZ .J-Z-I[command="+redo"] + .J-Z-axR,
+  .aZ .J-Z-I[command="+bold"],
+  .aZ .J-Z-I[command="+italic"],
+  .aZ .J-Z-I[command="+underline"],
+  .bAK .J-Z-I[command="Files"],
+  .bAK .J-Z-I[command="+link"],
+  .bAK .J-Z-I[command="+emoticon"],
+  .bAK .J-Z-I[command="locker"],
+  .bAK .J-Z-I[command="signature"] {
+      display: none;
+      outline: 1px dotted red;
+  }
+  /* Position the command bar */
+  .Ur {
+      top: 10px;
+      left: 105px;
+  }
+  /* Hide the box shadow of the command bar */
+  .aZ>.J-Z {
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+  }
+  
+  /* Reduce padding between formatting buttons */
+  .aZ .J-Z-I {
+    margin: 0 3px;
+  }
+  /* Dividers */
+  .aZ .J-Z-axR {
+    margin: 0 1px;
+  }
+  /* Dropdowns */
+  .aZ .J-Z-M-I .aaA:not(.Y1) {
+    margin-left: 1px;
+    margin-right: 0px;
+  }
+  /* Dropdown arrows */
+  .J-Z-M-I-J6-H>.J-Z-M-I-JG {
+    width: 12px;
+  }
+}

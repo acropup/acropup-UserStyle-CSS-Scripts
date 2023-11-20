@@ -67,6 +67,14 @@ This UserScript assumes that you are using Gmail's default keyboard shortcuts. I
 
 I chose not to add shortcut reminders to the Compose email window, because this is one place in Gmail where you can hover over most buttons to see a tooltip with its keyboard shortcut.
 
+## Gmail Tidy Compose Command Bar
+[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--compose--command--bar.user.css-238b8b.svg)][RawGmailKbd]<br>
+
+Hides unnecessary commands when composing an email, such as buttons for undo, redo, bold, italic, underline, emojis, attachments, inserts, etc. The features are either unnecessary or are more easily accessed through shortcuts or by drag-and-drop. It also places the entire text formatting command bar in line with the Send button, rather than leaving it floating overtop of the bottom of the email. The Remove Formatting command is now a single click away rather than three!
+
+![GmailCompose]
+
+
 ## Google Messages Keyboard Shortcuts
 [![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-google--messages--kbd--shortcuts.user.css-238b8b.svg)][RawMsgsKbd]<br>
 
@@ -133,6 +141,7 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 [YtWallSmall]: ./images/yt_videowall_small.gif "YouTube video wall before and after"
 [GmailKbdGif1]: ./images/gmail_read_view.gif "Gmail read mail view before and after"
 [GmailKbdGif2]: ./images/gmail_inbox.gif "Gmail inbox before and after"
+[GmailCompose]: ./images/gmail_compose_commands.webp "Gmail Compose command bar before and after"
 [MsgsKbdGif1]: ./images/messages_contacts.gif "Google Messages contact list before and after"
 [MsgsKbdGif2]: ./images/messages_textbox.gif "Google Messages text box before and after"
 [SheetsGif1]: ./images/sheets_straightedge.gif "Google Sheets straightedge for active selection"

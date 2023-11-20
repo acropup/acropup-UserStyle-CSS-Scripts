@@ -2,14 +2,14 @@
 @name           Google Drive - Show more of file names
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.2
+@version        1.0.3
 @description    Shows more of filenames in folder view and search results.
 @author         Shane Burgess
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://drive.google.com/drive/") {
   /* Filetype icon in Grid View */
-  .tohzcb, .a-nEbBXb .l-u-Ab-c {
+  .tohzcb, .a-nEbBXb .l-u-Ab-c, .D0pIte {
     padding: 12px 4px !important;
   }
   /* Filetype icon in List View */
@@ -21,16 +21,21 @@
     max-width: 38px;
   }
   /* Filenames in Grid View, show up to 3 lines */
-  div.l-u-V, span.l-Ab-T-r, div.Q5txwe {
+  div.l-u-V, span.l-Ab-T-r, div.Q5txwe, div.eAQ1W {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3 !important;
     padding: 0 !important;
+    margin-left: 0;
     font-size: .8rem !important;
     line-height: .8rem !important;
     max-height: 2.3rem !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: normal !important;
+  }
+  /* Filenames of "suggested" files in grid view */
+  .LnAvbc {
+    padding: 0px;
   }
 }

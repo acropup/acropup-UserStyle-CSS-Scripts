@@ -1,0 +1,130 @@
+/* This is a scratchpad of userstyle scripts that aren't complete, or aren't significant enough to make into their own script file */
+
+/* ==UserStyle==
+@name           Google Search Type Buttons
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+@-moz-document url-prefix("https://www.google.com/search") {
+  /* Change look of All/Images/Maps/Shopping/Videos/etc */
+  .HF9Klc, .m3kSL {
+    height: 24px !important;
+    width: 24px !important;
+    display: block !important;
+    left: calc(50% - 12px);
+    position: relative;
+  }
+  .NZmxZe {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    text-align: center;
+  }
+  
+  /* I don't like how google is like 30% ads now */
+    #tvcap, #atvcap,       /* web ads */
+    #bottomads,            /* web ads down the page */
+    .cUnQKe, .Wt5Tfe:not(.eJtrMc), /* people also asked stupid questions */
+    .S3nKkd,               /* images sponsored */
+    .cB8JGb                /* images inline related searches */
+  {
+    opacity: .2; /* not hiding outright yet until I'm confident that this doesn't hide anything that I do want to see */
+  }
+}
+  
+/* ==UserStyle==
+@name           Google Messages - Emoji Zoom on Hover
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document url-prefix("https://messages.google.com/web/") {
+  span[data-is-emoji] {
+    transition: font-size .3s, line-height .3s;
+  }
+  span[data-is-emoji]:hover {
+    font-size: 100px !important;
+    line-height: 120px !important;
+    z-index: 1000000000;
+  }
+}
+
+/* ==UserStyle==
+@name           quora.com hide signup
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+@-moz-document domain("www.quora.com") {
+  div.q-box {
+    filter: unset !important;
+  }
+  div.q-box:has(> div.qu-zIndex--blocking_wall) {
+    display: none;
+  }
+}
+
+  /* ==UserStyle==
+@name           web.telegram.org - 4/23/2023, 12:19:02 PM
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("web.telegram.org") {
+  img.emoji-small:hover,
+  img.ReactionStaticEmoji:hover,
+  img.avatar-media:hover {
+    width: 5rem !important;
+    height: 5rem !important;
+  }
+}
+
+
+/* ==UserStyle==
+@name           YouTube TimedText Caption File
+@namespace      github.com/acropup
+@version        1.0.0
+@description    Formats the XML-encoded YouTube TimedText files
+@author         Shane Burgess
+==/UserStyle== */
+
+/* Example URL: https://www.youtube.com/api/timedtext?v=_ZKNOKHpqE4&lang=en */
+@-moz-document url-prefix("https://www.youtube.com/api/timedtext") {
+  #webkit-xml-viewer-source-xml {
+    display: unset;
+  }
+  text {
+    position: relative;
+    display: block;
+    margin-left: 90px;
+    margin-right: 90px;
+  }
+  text::before,
+  text::after {
+    position: absolute;
+    min-width: 90px;
+    top: 0px;
+    height: 100%;
+    font-family: Cambria, sans-serif;
+  }
+  text::before {
+    content: "(" attr(start) "s)";
+    left: -90px;
+  }
+  text::after {
+    content: "(" attr(dur) "s)";
+    right: -90px;
+    font-style: italic;
+  }
+  text:nth-child(even),
+  text:nth-child(even)::before,
+  text:nth-child(even)::after {
+    background-color: #e8f2ff;
+  }
+}

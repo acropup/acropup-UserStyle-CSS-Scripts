@@ -68,7 +68,7 @@ This UserScript assumes that you are using Gmail's default keyboard shortcuts. I
 I chose not to add shortcut reminders to the Compose email window, because this is one place in Gmail where you can hover over most buttons to see a tooltip with its keyboard shortcut.
 
 ## Gmail Tidy Compose Command Bar
-[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--compose--command--bar.user.css-238b8b.svg)][RawGmailKbd]<br>
+[![Add script to Stylus](https://img.shields.io/badge/Add_to_Stylus-gmail--compose--command--bar.user.css-238b8b.svg)][RawGmailCompose]<br>
 
 Hides unnecessary commands when composing an email, such as buttons for undo, redo, bold, italic, underline, emojis, attachments, inserts, etc. The features are either unnecessary or are more easily accessed through shortcuts or by drag-and-drop. It also places the entire text formatting command bar in line with the Send button, rather than leaving it floating overtop of the bottom of the email. The Remove Formatting command is now a single click away rather than three!
 
@@ -129,6 +129,7 @@ These UserStyle scripts have not been tested on anything besides Chrome with the
 
 [RawYoutube]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/youtube.user.css
 [RawGmailKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/gmail-kbd-shortcuts.user.css
+[RawGmailCompose]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/gmail-compose-command-bar.user.css
 [RawMsgsKbd]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-messages-kbd-shortcuts.user.css
 [RawSheets]: https://raw.githubusercontent.com/acropup/acropup-UserStyle-CSS-Scripts/master/google-sheets-straightedge.user.css
 

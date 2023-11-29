@@ -7,8 +7,10 @@ Read the tops of individual files for descriptions of what they do.
 
 ## 1. Get the [Stylus] browser extension
 [![Stylus for Chrome](https://img.shields.io/badge/Get_Stylus_for-Chrome-blue.svg)][StylusChrome]<br>
-[![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)][StylusFirefox]<br>
+[![Stylus for Firefox](https://img.shields.io/badge/Get_Stylus_for-Firefox-orange.svg)][StylusFirefox] *<br>
 [![Stylus for Opera](https://img.shields.io/badge/Get_Stylus_for-Opera-red.svg)][StylusOpera]
+
+_* Some of these scripts use the [CSS :has()](https://caniuse.com/css-has) selector. If you are using Firefox v120 or earlier, you may need to enable the ```layout.css.has-selector.enabled``` flag in ```about:config```._
 
 ## 2. Add scripts to Stylus
 Take a look at the [UserStyle previews below](#UserStyle-Examples) and click any of the ![Add to Stylus](https://img.shields.io/badge/Add_to_Stylus-555555.svg) links to install them.

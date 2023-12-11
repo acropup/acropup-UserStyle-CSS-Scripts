@@ -2,7 +2,7 @@
 @name           AliExpress - UI Improvements
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.1
+@version        1.0.2
 @description    Shows more of product titles in search results, and the shopping cart emphasizes the chosen product variant.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -14,8 +14,7 @@ p.product-property span.val /* https://trade.aliexpress.com/orderList.htm */
     font-size: 20px;
 }
 
-
-/* Show more of item title in store view */
+/* Store view - show more of item titles */
 .m-o-large-all-detail .items-list .item .detail h3 a {
     font-size: 0;
     line-height: 0;
@@ -31,3 +30,26 @@ p.product-property span.val /* https://trade.aliexpress.com/orderList.htm */
     height: 5em;
 }
 
+/* Search results - show more of item titles */
+.multi--title--G7dOCj3 {
+    -webkit-line-clamp: 4;
+    line-height: 1.25;
+    padding-bottom: 0.2em;
+}
+.multi--title--G7dOCj3 > h1.multi--titleText--nXeOvyr {
+    word-break: normal;
+    line-height: 0;
+}
+
+/* Related Items - show more of item titles */
+.G7dOC {
+    -webkit-line-clamp: 6;
+    line-height: 1.25;
+    padding-bottom: 0.2em;
+}
+
+.G7dOC > h1.nXeOv {
+    word-break: normal;
+    font-size: 12px;
+    line-height: 0;
+}

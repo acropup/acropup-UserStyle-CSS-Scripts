@@ -2,54 +2,56 @@
 @name           AliExpress - UI Improvements
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.0.2
+@version        1.0.3
 @description    Shows more of product titles in search results, and the shopping cart emphasizes the chosen product variant.
 @author         Shane Burgess
 ==/UserStyle== */
+@-moz-document domain("aliexpress.com") {
 
-/* Show selected product options larger (colours, etc) */
-.product-sku dl,            /* https://shoppingcart.aliexpress.com/shopcart */
-p.product-property span.val /* https://trade.aliexpress.com/orderList.htm */
-{
-    font-size: 20px;
-}
+    /* Show selected product options larger (colours, etc) */
+    .product-sku dl,            /* https://shoppingcart.aliexpress.com/shopcart */
+    p.product-property span.val /* https://trade.aliexpress.com/orderList.htm */
+    {
+        font-size: 20px;
+    }
 
-/* Store view - show more of item titles */
-.m-o-large-all-detail .items-list .item .detail h3 a {
-    font-size: 0;
-    line-height: 0;
-    position: absolute;
-}
-.m-o-large-all-detail .items-list .item .detail h3 a::after {
-    content: attr(title);
-    font-size: 12px;
-    line-height: 1;
-    display: block;
-}
-.m-o-large-all-detail .items-list .item .detail h3 {
-    height: 5em;
-}
+    /* Store view - show more of item titles */
+    .m-o-large-all-detail .items-list .item .detail h3 a {
+        font-size: 0;
+        line-height: 0;
+        position: absolute;
+    }
+    .m-o-large-all-detail .items-list .item .detail h3 a::after {
+        content: attr(title);
+        font-size: 12px;
+        line-height: 1;
+        display: block;
+    }
+    .m-o-large-all-detail .items-list .item .detail h3 {
+        height: 5em;
+    }
 
-/* Search results - show more of item titles */
-.multi--title--G7dOCj3 {
-    -webkit-line-clamp: 4;
-    line-height: 1.25;
-    padding-bottom: 0.2em;
-}
-.multi--title--G7dOCj3 > h1.multi--titleText--nXeOvyr {
-    word-break: normal;
-    line-height: 0;
-}
+    /* Search results - show more of item titles */
+    .multi--title--G7dOCj3 {
+        -webkit-line-clamp: 4;
+        line-height: 1.25;
+        padding-bottom: 0.2em;
+    }
+    .multi--title--G7dOCj3 > h1.multi--titleText--nXeOvyr {
+        word-break: normal;
+        line-height: 0;
+    }
 
-/* Related Items - show more of item titles */
-.G7dOC {
-    -webkit-line-clamp: 6;
-    line-height: 1.25;
-    padding-bottom: 0.2em;
-}
+    /* Related Items - show more of item titles */
+    .G7dOC {
+        -webkit-line-clamp: 6;
+        line-height: 1.25;
+        padding-bottom: 0.2em;
+    }
 
-.G7dOC > h1.nXeOv {
-    word-break: normal;
-    font-size: 12px;
-    line-height: 0;
+    .G7dOC > h1.nXeOv {
+        word-break: normal;
+        font-size: 12px;
+        line-height: 0;
+    }
 }

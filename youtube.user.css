@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ==UserStyle==
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
@@ -431,3 +432,436 @@
     
     }
     
+=======
+/* ==UserStyle==
+@name           YouTube Refined
+@namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.3.1
+@description    Makes YouTube nicer to use. See below for details.
+@author         Shane Burgess
+@preprocessor   less
+
+@var range    TitleLines "Title lines shown on homepage" [3, 0, 4, 1]
+@var checkbox HidePlaylists "Playlists hidden from search results and recommendations" 1
+@var checkbox HideShorts "YouTube Shorts links and suggestions removed entirely" 1
+@var checkbox CCToBottom "Captions stay at bottom of video" 1
+@var checkbox HidePrevNextButtons "Hide Previous/Next buttons next to Play/Pause button" 1
+@var checkbox ShowVideoWallTitles "Show all video titles on video wall (after video ends)" 1
+@var checkbox AdDismissBtn "Ad dismiss buttons made larger" 1
+@var number   DescLinesShown "Unexpanded description size" [12, 0, 100, 1]
+@var number   VideoOverlay "Video overlays (channel banner, suggested video, etc.) opacity" [0.2, 0.0, 1.0, 0.05]
+@var checkbox ColourLogo "Colour the YouTube logo" 1
+==/UserStyle== */
+
+/* This UserStyle shows more of the suggested video titles
+   so that they're less likely to be cut short like thi...
+
+  Other features:
+  - Makes the sentiment bar (showing likes vs dislikes) more eye-catching.
+  - Hides some of the overlays that obscure thumbnails and preview videos.
+  - The end-of-video "video wall" now shows all video titles by default. [Optional]
+  - Removes the "Scroll for details" chevron in fullscreen mode.
+  - Removes the "Ambient Mode" animated gradient effect from around videos.
+  - Removes the "More videos" popup over paused videos.
+  - Captions don't move (and further obscure the video) when the progress bar appears. [Optional]
+  - Bottom gradient isn't as obtrusive when the progress bar appears.
+  - Hides the Previous/Next buttons that are next to the Play/Pause button. [Optional]
+  - Increases the size of dismiss buttons for in-video ads. [Optional]
+  - Shows more of the video description by default. [Optional]
+  - SHOW MORE/SHOW LESS and Read more/Show less buttons are made more visible.
+  - Hides playlists from search results and recommendations. [Optional]
+  - Hides YouTube Shorts links and suggestions. [Optional]
+  - Reduces visibility of video overlays, such as links to uploader's channel, videos, and playlists. [Optional]
+  - Colour the YouTube logo as a visual indicator that this UserStyle script is enabled. [Optional]
+*/
+
+
+@-moz-document url-prefix("https://www.youtube.com/") {
+/* YouTube homepage and general */
+
+ytd-rich-item-renderer.ytd-rich-grid-renderer {
+    margin-bottom: 20px;
+}
+ytd-grid-video-renderer.ytd-grid-renderer {
+    margin-bottom: 12px !important;
+}
+
+/* Reduce vertical margin on video titles */
+#meta > h3.ytd-rich-grid-video-renderer,
+#meta > h3.ytd-grid-video-renderer,
+#meta > h3.ytd-rich-grid-media {
+    margin: 2px 0;
+}
+/* Let content overlap with ellipsis menu column */
+#meta.ytd-rich-grid-video-renderer,
+#meta.ytd-grid-video-renderer,
+#meta.ytd-rich-grid-media {
+    padding-right: 0px;
+}
+/* Move vertical ellipsis menu button to bottom right corner */
+#menu > ytd-menu-renderer.ytd-rich-grid-video-renderer,
+#menu > ytd-menu-renderer.ytd-rich-grid-media {
+    top: unset;
+    bottom: 2px;
+}
+#menu > ytd-menu-renderer.ytd-grid-video-renderer,
+#menu > ytd-menu-renderer.ytd-rich-grid-media {
+    top: unset;
+    bottom: -3px;
+}
+
+/* Channel name and view count, bottom left */
+ytd-video-meta-block.grid.ytd-rich-grid-video-renderer,
+ytd-video-meta-block.grid.ytd-rich-grid-media {
+    position: absolute;
+    left: 42px;
+    width: 100%;
+    bottom: 0;
+}
+#metadata-container.grid.ytd-grid-video-renderer,
+#metadata-container.grid.ytd-grid-media {
+    position: absolute;
+    bottom: 0;
+}
+/* Channel icon, bottom left */
+a#avatar-link {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+/* Set height of video's text info */
+ytd-rich-grid-video-renderer div#details,
+ytd-rich-grid-media div#details {
+    height: calc((@TitleLines * 1.8rem) + 3.8rem);
+}
+ytd-grid-video-renderer div#details {
+    height: calc((@TitleLines + 2) * 1.8rem);
+}
+/* Show up to 4 lines of title text before truncating with ellipsis */
+/* removed class .yt-simple-endpoint */
+#video-title.style-scope.ytd-rich-grid-video-renderer,
+ytd-grid-video-renderer #video-title.style-scope.ytd-grid-video-renderer,
+#video-title.style-scope.ytd-rich-grid-media,
+ytd-rich-grid-media #video-title.style-scope.ytd-rich-grid-media {
+    font-size: 1.4rem !important;
+    line-height: 1.8rem !important;
+    max-height: calc(@TitleLines * $line-height) !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: @TitleLines;
+}
+
+/* Horizontal scrollbar was appearing, don't know why */
+#contents.ytd-rich-shelf-renderer {
+    overflow-x: unset;
+}
+
+/* Move badges below title and add background */
+ytd-badge-supported-renderer.ytd-rich-grid-video-renderer,
+ytd-badge-supported-renderer.ytd-rich-grid-media,
+ytd-badge-supported-renderer + #buttons { /* #buttons is for SET REMINDER button */
+    position: absolute;
+    bottom: 35px;
+    right: 0px;
+    margin: 0px;
+    border-width: 0px;
+}
+ytd-badge-supported-renderer .badge.badge-style-type-collection.ytd-badge-supported-renderer {
+    padding: 3px 4px;
+    border-radius: 4px;
+    background-color: var(--yt-std-surface-400);
+}
+/* Light red background to LIVE NOW badge */
+ytd-badge-supported-renderer .badge.badge-style-type-live-now.ytd-badge-supported-renderer {
+    background-color: #ff000020;
+}
+
+/* Fade out buttons over thumbnail ("Watch later" and "Add to queue") when not hovered */
+#hover-overlays:not(:hover) > ytd-thumbnail-overlay-toggle-button-renderer {
+    opacity: 0.4;
+    background: none;
+    transition: opacity .5s, background .5s;
+}
+/* Hide the Play icon from hovered video previews */
+#mouseover-overlay #play {
+    display: none;
+}
+/* Fade out thumbnail time status more quickly */
+ytd-rich-grid-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail,
+ytd-grid-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail, 
+ytd-compact-video-renderer:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail,
+ytd-rich-grid-media:hover ytd-thumbnail-overlay-time-status-renderer.ytd-thumbnail {
+    transition: opacity 0.15s;
+    opacity: 0;
+}
+
+& when (@HidePlaylists = 1) {
+/* Hide all suggested playlists because I almost never want to see them */
+ytd-compact-radio-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
+ytd-compact-playlist-renderer.ytd-watch-next-secondary-results-renderer, /* video page */
+ytd-compact-radio-renderer.ytd-item-section-renderer.use-ellipsis, /* video page Mix */
+ytd-radio-renderer.ytd-item-section-renderer,   /* search results */
+ytd-playlist-renderer.ytd-item-section-renderer /* search results */ {
+    display: none;
+}
+}
+
+/* Hide YouTube Shorts and Featured banners */
+& when (@HideShorts = 1) {
+  ytd-rich-section-renderer:has(ytd-statement-banner-renderer) {
+    background-color: purple;    
+  }
+
+  ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),          /* main homepage */
+  #guide-inner-content ytd-guide-entry-renderer:has(a[title="Shorts"]),       /* expanded navigation bar */
+  ytd-mini-guide-renderer ytd-mini-guide-entry-renderer[aria-label="Shorts"], /* minimized navigation bar */
+  ytd-video-renderer:has( a[href^="/shorts/"]),                               /* search results */
+  ytd-reel-shelf-renderer:has(#items a[href^="/shorts/"]),                    /* channel Home page */ 
+  #items.ytd-grid-renderer > ytd-grid-video-renderer:has(a[href^="/shorts/"]),/* channel Videos page */
+  ytd-item-section-renderer:has(ytd-shelf-renderer yt-horizontal-list-renderer #items a[href^="/shorts/"]) /* Explore feed */ {
+    display: none;
+  }
+}
+    
+& when (@ColourLogo = 1) {
+    #logo-icon svg > g:nth-child(1) > path:nth-child(1) { /* youtube logo squircle */
+        fill: #F12711;
+    }
+    #logo-icon svg > g:nth-child(1) >  path:nth-child(2) { /* youtube logo play triangle */
+        fill: #FA3;
+    }
+    /* Y o u T u b e */
+/* https://meyerweb.com/eric/tools/color-blend/ */
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(1) { fill: #F12711 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(2) { fill: #F23E12 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(3) { fill: #F25414 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(4) { fill: #F36B15 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(5) { fill: #F48216 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(6) { fill: #F49818 !important; }
+#logo-icon svg > g:nth-child(2) > g > path:nth-child(7) { fill: #F5AF19 !important; }
+
+/* Hamburger Menu Icon - can't colour the SVG with only CSS so I'm redoing the shape as a clip-path */
+#guide-icon {
+    background: linear-gradient(0deg, #f00, #ffe600);
+    clip-path: polygon(3px 18px, 21px 18px, 21px 16px, 3px 16px,
+                       3px 13px, 21px 13px, 21px 11px, 3px 11px,
+                       3px 8px, 21px 8px, 21px 6px, 3px 6px);
+    & svg {
+        display: none !important;
+    }
+}
+}
+/*
+Notes on different badge styles:
+badge-style-type-verified           Verification checkmark
+badge-style-type-verified-artist    Music note for verified official artist channel
+badge-style-type-simple             New, Free
+badge-style-type-live-now           LIVE NOW
+badge-style-type-collection         Series, season, and episode info
+badge-style-type-ypc                Fundraiser, Free with Ads
+    
+Notes on different video preview styles:
+ytd-rich-grid-video-renderer        Large thumbnail, video preview, channel logo, info below thumbnail
+                                    ex. YouTube homepage
+ytd-grid-video-renderer             Small thumbnail with info below thumbnail
+                                    ex. /channel/<channel_id>/videos
+                                        /feed/subscriptions
+                                        /feed/library
+ytd-compact-video-renderer          Small thumbnail with info to right of thumbnail
+                                    ex. Suggested video list on right side of any video page
+*/
+}
+
+@-moz-document url-prefix("https://www.youtube.com/watch?"),
+               url-prefix("https://www.youtube.com/embed/"),
+               url-prefix("https://www.youtube-nocookie.com/embed/") {
+/* YouTube watch video page */
+
+/* Make youtube sentiment bar (bar graph of likes vs dislikes) stand out more,
+   so that I'm more likely to notice if a video is bad before watching it. */
+#sentiment.ytd-video-primary-info-renderer.style-scope {
+    padding-top: 2px;
+}
+#container.ytd-sentiment-bar-renderer.style-scope {
+    height: 6px;
+    background-color: #00f3ff;
+}
+#like-bar.ytd-sentiment-bar-renderer {
+    height: 6px;
+}
+
+/* Allow up to four lines of video title text for suggested videos */
+#video-title.ytd-compact-video-renderer {
+    max-height: 5.6em !important;
+    line-height: 1.4rem !important;
+    margin: 0 !important;
+    -webkit-line-clamp: 4 !important;
+}
+/* More horizontal room for suggested video titles */
+.metadata.ytd-compact-video-renderer {
+    padding-right: 10px;
+}
+/* Reduce padding around default video view */
+ytd-watch-flexy[flexy_][is-two-columns_] #primary.ytd-watch-flexy {
+    margin-left: var(--ytd-margin-2x);
+    padding-right: var(--ytd-margin-2x);
+}
+ytd-watch-flexy[flexy_][is-two-columns_] #secondary.ytd-watch-flexy {
+    padding-right: 0 !important;
+    width: calc(var(--ytd-watch-flexy-sidebar-width) + 57px) !important;
+}
+/* Reduce whitespace betweeen "up next" video and all related videos */
+ytd-compact-video-renderer.ytd-compact-autoplay-renderer {
+    padding-bottom: 0px;
+}
+ytd-compact-autoplay-renderer {
+    margin-bottom: 8px;
+}
+
+/* Move badges to the bottom and fade it out on hover */
+ytd-badge-supported-renderer.ytd-compact-video-renderer .badge,
+ytd-badge-supported-renderer.ytd-compact-movie-renderer .badge {
+    position: absolute;
+    bottom: 0rem;    
+    transition: opacity .15s;
+}
+ytd-compact-video-renderer.ytd-watch-next-secondary-results-renderer:hover ytd-badge-supported-renderer.ytd-compact-video-renderer .badge,
+ytd-compact-video-renderer.ytd-compact-autoplay-renderer:hover ytd-badge-supported-renderer.ytd-compact-video-renderer .badge {
+    opacity: .2;
+    transition: opacity .2s;
+}
+ytd-badge-supported-renderer.ytd-compact-video-renderer .badge-style-type-collection,
+ytd-badge-supported-renderer.ytd-compact-movie-renderer .badge-style-type-collection {
+    right: 1rem;
+}
+
+/* Move vertical ellipsis menu button to bottom right corner */
+ytd-menu-renderer.ytd-compact-video-renderer {
+    top: unset !important; 
+    bottom: 10px;
+}
+
+/* Remove "More videos" popup over paused videos */
+.ytp-pause-overlay {
+    display: none !important;
+}
+/* Reduce visibility of video overlays, such as links to uploader's channel, videos, and playlists */
+.ytp-ce-element:not(:hover):not(:focus) {
+    opacity: @VideoOverlay;
+}
+& when (@VideoOverlay = 0) {
+    .ytp-ce-element {
+        display: none !important;
+    }
+}
+
+/* For the videowall of suggested videos after the playing video has finished, 
+   show titles and other details by default, and hide them when hovered. 
+   YouTube normally hides the text unless hovered. */
+& when (@ShowVideoWallTitles = 1) {
+.ytp-videowall-still-info-content {
+    opacity: 1;
+}
+.ytp-videowall-still:focus .ytp-videowall-still-info-content, 
+.ytp-videowall-still:hover .ytp-videowall-still-info-content, 
+.ytp-videowall-still.ytp-videowall-show-text .ytp-videowall-still-info-content {
+    opacity: 0;
+}
+/* Videowall suggested titles should show more than 2 lines before truncating */
+span.ytp-videowall-still-info-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    max-height: 7.5em !important;
+}
+}
+/* Remove "Scroll for details" chevron in fullscreen mode */
+.ytp-fullerscreen-edu-button {
+    display: none !important;
+}
+/* Remove "Ambient Mode" effect */
+#cinematics-container {
+    display: none;
+}
+
+& when (@CCToBottom = 1) {
+/* It's ok if the progress bar overlaps the captions */
+#movie_player .caption-window.ytp-caption-window-bottom {
+    margin-bottom: 0px;
+}
+.caption-window {
+    bottom: 0 !important;
+}
+}
+/* Bottom gradient behind progress bar made less obtrusive */
+.ytp-gradient-bottom {
+    height: 49px !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==) !important;
+}
+.ytp-big-mode .ytp-gradient-bottom {
+    height: 70px !important;               
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEmCAYAAACjy/qzAAAAhklEQVQ4y52RUQ6AMAxCKd7/JJ7R6aeJAdr507TjQZqOAE4CWARwx7JE944rch/k6qOWS7bq5bh72zGF8+LTa6goJeRPgXDYNxWFfkS0QXCInLIN1GxTXA0dtS0otWJnuXJR1Y9WYP9GF1UCYRQYHRSlXMARbVO4th3sd7Y3OP5dY3Bn+SkPsGJ1+HGGVtcAAAAASUVORK5CYII=) !important;
+}
+
+& when (@HidePrevNextButtons = 1) {
+.ytp-chrome-controls .ytp-prev-button,
+.ytp-chrome-controls .ytp-next-button {
+    display: none;
+  }
+}
+
+& when (@AdDismissBtn = 1) {
+/* This isn't an ad-blocking script, but I take exception with ads that obscure 
+   the content and force you to click a tiny little [x] to dismiss them */
+.ytp-ad-overlay-close-container {
+    height: 82px;
+    width: 82px;
+    padding: 0px;
+    right: 4px;
+    top: 4px;
+    outline: auto #757575;
+}
+.ytp-ad-overlay-ad-info-button-container {
+    right: 90px
+}
+/* Larger Skip button on skippable video ads */
+.ytp-ad-skip-button-slot, .ytp-ad-skip-button-container {
+    display: unset !important;
+}
+.ytp-ad-skip-button {
+    font-size: 36px;
+    padding: 10px 8px 10px 16px;
+}
+}
+
+/* Show more video description text by default */
+ytd-expander.ytd-video-secondary-info-renderer {
+    --ytd-expander-collapsed-height: calc(@DescLinesShown * var(--ytd-user-comment_-_line-height)) !important;
+    & when (@DescLinesShown = 0) {
+        display: none;
+    }
+}
+/* SHOW MORE/SHOW LESS buttons more visible */
+ytd-video-secondary-info-renderer tp-yt-paper-button#more.ytd-expander,
+ytd-video-secondary-info-renderer tp-yt-paper-button#less.ytd-expander {
+    background-color: var(--yt-spec-10-percent-layer);
+    color: var(--yt-spec-text-secondary);
+    padding: 0 1em 0.5em 1em;
+    margin: 1em 0 0;
+}
+/* Read more/Show less buttons more visible */
+#comments tp-yt-paper-button#more.ytd-expander,
+#comments tp-yt-paper-button#less.ytd-expander {
+    background-color: var(--yt-spec-10-percent-layer);
+    color: var(--yt-spec-text-secondary);
+    margin: .8em 0 0 0;
+    padding: 2px 4px 0px 4px;
+}
+
+}
+>>>>>>> b68c24b5dbd9cb5f5bbb312482135a744dfe3cb7

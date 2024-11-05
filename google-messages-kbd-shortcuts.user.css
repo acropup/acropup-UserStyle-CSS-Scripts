@@ -2,7 +2,7 @@
 @name           Keyboard shortcut tooltips for messages.google.com
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.1.1
+@version        1.2.0
 @description    Within Google Messages for web (messages.google.com), display the most useful keyboard shortcuts next to their buttons.
 @author         Shane Burgess
 ==/UserStyle== */
@@ -15,7 +15,7 @@
        --kbd-tooltip-bg-color: #ccc;
        --kbd-tooltip-color: #5f6368;
     }
-    body.dark-mode {
+    body.dark-theme {
        --kbd-tooltip-bg-color: #555558;
        --kbd-tooltip-color: #bbbbc0;
     }
@@ -27,7 +27,7 @@
     
     /* General formatting for all tooltips */
     mws-conversation-list-item > a.list-item.selected::before,
-    mws-conversation-list-item > a.list-item.selected::after,
+    mws-conversation-list-item:has(> a.list-item.selected) + mws-conversation-list-item > a.list-item::before,
     mw-main-nav > div.main-nav-header::before,
     mws-autosize-textarea.input:not(:focus-within)::before,
     .bottom-anchored-content > .content:not(:focus-within)::before,
@@ -55,28 +55,28 @@
         position: relative;
     }
     mws-conversation-list-item > a.list-item.selected::before,
-    mws-conversation-list-item > a.list-item.selected::after {
+    mws-conversation-list-item:has(> a.list-item.selected) + mws-conversation-list-item > a.list-item::before {
         content: 'Ctrl + ,';
-        top: -18px;
-        left: 265px;
+        top: -20px;
+        right: 0px;
         white-space: nowrap;
     }
-    mws-conversation-list-item > a.list-item.selected::after {
+    mws-conversation-list-item:has(> a.list-item.selected) + mws-conversation-list-item > a.list-item::before {
         content: 'Ctrl + .';
-        top: 73px;
+        top: 1px;
     }
     
     /* Focus on conversation list */
     mw-main-nav > div.main-nav-header::before {
         content: 'Ctrl+Shift+K';
         top: 130px;
-        right: 10px;
+        right: 6px;
     }
     
     /* Focus on message textbox */
     mws-autosize-textarea.input:not(:focus-within)::before {
         content: 'R';
-        top: -13px;
+        top: -14px;
     }
     
     /* Focus on messages in conversation */
@@ -94,13 +94,13 @@
     /* Insert images buttons */
     button[data-e2e-picker-button]:first-child::before,
     button[data-e2e-picker-button]::after {
-        bottom: 42px;
+        bottom: 46px;
         height: 15px;
-        right: 8px;
+        right: 12px;
     }
     button[data-e2e-picker-button]:first-child::before {
         content: 'Ctrl+Shift';
-        right: 32px;
+        right: 38px;
     }
     button[data-e2e-picker-button="EMOJI"]::after      { content: '+E'; }
     button[data-e2e-picker-button="STICKER"]::after    { content: '+S'; }
@@ -113,7 +113,7 @@
     }
     mw-fab-link.start-chat::before {
         content: 'Ctrl+K';
-        top: -19px;
+        top: -22px;
         left: 40px;
     }
   

@@ -1,0 +1,30 @@
+/* ==UserStyle==
+@name           Stack Exchange Decluttering
+@namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
+@homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
+@version        1.0.0
+@description    Decluttering of common distractions on stackoverflow.com, stackexchange.com, and all other Stack Exchange Network sites.
+@author         Shane Burgess
+==/UserStyle== */
+
+@-moz-document domain("stackexchange.com"),
+               domain("stackoverflow.com"),
+               domain("superuser.com"),
+               domain("serverfault.com"),
+               domain("askubuntu.com"),
+               domain("stackapps.com"),
+               domain("mathoverflow.net")
+{
+  /* Hot Network Questions are a major distraction */
+  #hot-network-questions,
+  /* RSS link */
+  #feed-link,
+  /* Featured on Meta */
+  .s-sidebarwidget,
+  /* Stack Overflow for Teams Ad */
+  .js-freemium-cta,
+  /* Cookie consent banner */
+  #onetrust-consent-sdk {
+    display: none;
+  }
+}

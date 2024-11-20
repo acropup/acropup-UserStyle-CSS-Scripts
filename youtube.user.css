@@ -2,7 +2,7 @@
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.3.2
+@version        1.3.3
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -31,6 +31,7 @@
   - Removes the "More videos" popup over paused videos.
   - Captions don't move (and further obscure the video) when the progress bar appears. [Optional]
   - Bottom gradient isn't as obtrusive when the progress bar appears.
+  - Reverts the pink gradient progress bar to a pure red colour.
   - Hides the Previous/Next buttons that are next to the Play/Pause button. [Optional]
   - Increases the size of dismiss buttons for in-video ads. [Optional]
   - Shows more of the video description by default. [Optional]
@@ -372,6 +373,10 @@
     .ytp-big-mode .ytp-gradient-bottom {
         height: 70px !important;               
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEmCAYAAACjy/qzAAAAhklEQVQ4y52RUQ6AMAxCKd7/JJ7R6aeJAdr507TjQZqOAE4CWARwx7JE944rch/k6qOWS7bq5bh72zGF8+LTa6goJeRPgXDYNxWFfkS0QXCInLIN1GxTXA0dtS0otWJnuXJR1Y9WYP9GF1UCYRQYHRSlXMARbVO4th3sd7Y3OP5dY3Bn+SkPsGJ1+HGGVtcAAAAASUVORK5CYII=) !important;
+    }
+    /* Revert the pink gradient progress bar to a pure red colour */  
+    .html5-play-progress, .ytp-play-progress {
+        background: #F03 !important;
     }
     
     & when (@HidePrevNextButtons = 1) {

@@ -2,7 +2,7 @@
 @name           YouTube Refined
 @namespace      github.com/acropup/acropup-UserStyle-CSS-Scripts
 @homepageURL    https://github.com/acropup/acropup-UserStyle-CSS-Scripts
-@version        1.3.3
+@version        1.3.4
 @description    Makes YouTube nicer to use. See below for details.
 @author         Shane Burgess
 @preprocessor   less
@@ -202,13 +202,13 @@
         }
         /* Y o u T u b e */
     /* https://meyerweb.com/eric/tools/color-blend/ */
-    #logo-icon svg > g:nth-child(2) > g > path:nth-child(1) { fill: #F12711 !important; }
-    #logo-icon svg > g:nth-child(2) > g > path:nth-child(2) { fill: #F23E12 !important; }
-    #logo-icon svg > g:nth-child(2) > g > path:nth-child(3) { fill: #F25414 !important; }
-    #logo-icon svg > g:nth-child(2) > g > path:nth-child(4) { fill: #F36B15 !important; }
-    #logo-icon svg > g:nth-child(2) > g > path:nth-child(5) { fill: #F48216 !important; }
-    #logo-icon svg > g:nth-child(2) > g > path:nth-child(6) { fill: #F49818 !important; }
-    #logo-icon svg > g:nth-child(2) > g > path:nth-child(7) { fill: #F5AF19 !important; }
+    #logo-icon svg > g:nth-child(2) > path:nth-child(1) { fill: #F12711 !important; }
+    #logo-icon svg > g:nth-child(2) > path:nth-child(2) { fill: #F23E12 !important; }
+    #logo-icon svg > g:nth-child(2) > path:nth-child(3) { fill: #F25414 !important; }
+    #logo-icon svg > g:nth-child(2) > path:nth-child(4) { fill: #F36B15 !important; }
+    #logo-icon svg > g:nth-child(2) > path:nth-child(5) { fill: #F48216 !important; }
+    #logo-icon svg > g:nth-child(2) > path:nth-child(6) { fill: #F49818 !important; }
+    #logo-icon svg > g:nth-child(2) > path:nth-child(7) { fill: #F5AF19 !important; }
     
     /* Hamburger Menu Icon - can't colour the SVG with only CSS so I'm redoing the shape as a clip-path */
     #guide-icon {
